@@ -14,18 +14,22 @@ return new class extends Migration
     public function up()
     {
         Schema::create('visitdata', function (Blueprint $table) {
-            $table->id();
             $table->string('PatientID');
+            $table->id();
+            $table->unsignedBigInteger('EmployeeID');
             $table->string('ExaminationPlace');
             $table->date('ExaminationDate');
             $table->integer('VisitNum');
+            $table->string('Comment')->nullable();
+            $table->unsignedBigInteger('ClinicID');
 //            $table->string('DoctorID');
 
             $table->timestamps();
             $table->softDeletes();
 
-            $table->unsignedBigInteger('doctor_id');
+
             $table->unsignedBigInteger('patientinfo_id');
+
         });
     }
 

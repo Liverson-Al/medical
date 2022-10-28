@@ -7,7 +7,8 @@ use Illuminate\Http\Request;
 
 class PatientController extends Controller
 {
-    public function index(){
+    public function index()
+    {
         $patients = PatientInfo::all();
         return view('patients.index', compact('patients'));
     }
@@ -25,26 +26,35 @@ class PatientController extends Controller
            'PatientPatronymic'=>'string',
            'BirthDate'=>'date',
            'Sex'=>'boolean',
-           'PhoneNumber'=>'string',
            'ResidenceRegion'=>'string',
         ]);
         PatientInfo::create($data);
         return redirect()->route('patients.index');
     }
-    public function show ()
+    public function show (PatientInfo $patient)
     {
-
+        return view('patients.show', compact('patient'));
     }
-    public function edit ()
+    public function edit (PatientInfo $patient)
     {
-
+        return view('patients.edit', compact('patient'));
     }
-    public function update ()
+    public function update (PatientInfo $patient)
     {
-
+        $data = request()->validate([
+            'PatientSurname'=>'string',
+            'PatientName'=>'string',
+            'PatientPatronymic'=>'string',
+            'BirthDate'=>'date',
+            'Sex'=>'boolean',
+            'ResidenceRegion'=>'string',
+        ]);
+        $patient->update($data);
+        return redirect()->route('patients.show', $patient->id);
     }
-    public function destroy ()
+    public function destroy (PatientInfo $patient)
     {
-
+        $patient->delete();
+        return redirect()->route('patients.index');
     }
 }

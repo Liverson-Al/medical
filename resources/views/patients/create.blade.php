@@ -13,19 +13,15 @@
             <label for="BirthDate">Введите дату рожения</label>
             <input type="date" id="BirthDate" class="form-control">
         </div>
-        Пол - Хз короче как нормально передавать значение 1 или 0, пытался нагуглить, но чёт уже подзаебался
-        <div class="form-check">
-            <input class="form-check-input1" type="radio" value='1' name="Sex" id="Sex1" checked>
-            <label class="form-check-label" for="Sex1">
-                Мужской
-            </label>
+        <div class="form-group">
+            Выберите пол
+            <select class="form-select" aria-label="Default select example">
+                <option selected>Пол</option>
+                <option value="1">Мужской</option>
+                <option value="0">Женский</option>
+            </select>
         </div>
-        <div class="form-check">
-            <input class="form-check-input2" type="radio" value='0' name="Sex" id="Sex0">
-            <label class="form-check-label" for="Sex0">
-                Женский
-            </label>
-        </div>
+
         <div class="mb-3">
             <label for="PhoneNumber" class="form-label">Телефонный номер</label>
             <input type="string" class="form-control" id="PhoneNumber" placeholder="+71234567890">

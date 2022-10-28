@@ -9,8 +9,8 @@ class VisitData extends Model
 {
     use HasFactory;
 
-    public function doctor(){
-        return $this->belongsTo(doctor::class);
+    public function employee(){
+        return $this->belongsTo(employee::class);
     }
 
     public function patientinfo(){

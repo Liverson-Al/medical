@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Doctor extends Model
+class Employee extends Model
 {
     use HasFactory;
 
@@ -14,9 +14,9 @@ class Doctor extends Model
         return $this->belongsTo(Occupation::class);
     }
 
-    public function PlaceOfWork()
+    public function WorkPlaceID()
     {
-        return $this->belongsTo(PlaceOfWork::class);
+        return $this->belongsTo(WorkPlaceID::class);
     }
 
     public function role()

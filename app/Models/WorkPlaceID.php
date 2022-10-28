@@ -5,7 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class DoctorPlaceofwork extends Model
+class WorkPlaceID extends Model
 {
     use HasFactory;
+
+    public function employee(){
+        return $this->hasMany(employee::class);
+    }
 }

@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('doctors', function (Blueprint $table) {
+        Schema::create('employees', function (Blueprint $table) {
             $table->id();
 
             $table->string('Name');
@@ -27,9 +27,12 @@ return new class extends Migration
 
             $table->timestamps();
 
-            $table->unsignedBigInteger('PlaceOfWork_id');
-            $table->unsignedBigInteger('Occupation_id');
-            $table->unsignedBigInteger('Role_id');
+//            $table->unsignedBigInteger('PlaceOfWork_id')->nullable();
+
+            $table->unsignedBigInteger('OccupationID')->nullable();
+            $table->unsignedBigInteger('RoleID')->nullable();
+
+            $table->softDeletes();
         });
     }
 
@@ -40,6 +43,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('doctors');
+        Schema::dropIfExists('employees');
     }
 };

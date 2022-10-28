@@ -9,7 +9,7 @@ class Role extends Model
 {
     use HasFactory;
 
-    public function doctor(){
-        return $this->hasMany(doctor::class);
+    public function employee(){
+        return $this->hasMany(employee::class);
     }
 }
