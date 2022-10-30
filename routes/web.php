@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Employee;
 
 
 Route::get('/', 'App\Http\Controllers\HomeController@index');
@@ -9,14 +10,16 @@ Route::get('/admin', 'App\Http\Controllers\MainController@index');
 
 Route::get('/main', 'App\Http\Controllers\EmployeeHomeController@index')->name('employees_home.index');
 
+Route::group(['namespace'=>'App\Http\Controllers\Employee'], function(){
+    Route::get('/employees', 'IndexController')->name('employees.index');
+    Route::get('/employees/create', 'CreateController')->name('employees.create');
+    Route::post('/employees', 'StoreController');
+    Route::get('/employees/{employee}', 'ShowController')->name('employees.show');
+    Route::get('/employees/{employee}/edit', 'EditController')->name('employees.edit');
+    Route::patch('/employees/{employee}', 'UpdateController')->name('employees.update');
+    Route::delete('/employees/{employee}', 'DeleteController')->name('employees.delete');
+});
 
-Route::get('/employees', 'App\Http\Controllers\EmployeeController@index')->name('employees.index');
-Route::get('/employees/create', 'App\Http\Controllers\EmployeeController@create')->name('employees.create');
-Route::post('/employees', 'App\Http\Controllers\EmployeeController@store')->name('employees.store');
-Route::get('/employees/{employee}', 'App\Http\Controllers\EmployeeController@show')->name('employees.show');
-Route::get('/employees/{employee}/edit', 'App\Http\Controllers\EmployeeController@edit')->name('employees.edit');
-Route::patch('/employees/{employee}', 'App\Http\Controllers\EmployeeController@update')->name('employees.update');
-Route::delete('/employees/{employee}', 'App\Http\Controllers\EmployeeController@destroy')->name('employees.delete');
 
 
 

@@ -21,16 +21,17 @@ return new class extends Migration
             $table->string('Patronymic');
             $table->date('BirthDate');
             $table->boolean('Sex');
-            $table->string('Region');
-            $table->string('City');
+            $table->unsignedBigInteger('WorkPlaceID');
+            $table->unsignedBigInteger('RoleID');
+            $table->unsignedBigInteger('OccupationID');
             $table->integer('WorkExperience');
 
             $table->timestamps();
 
 //            $table->unsignedBigInteger('PlaceOfWork_id')->nullable();
 
-            $table->unsignedBigInteger('OccupationID')->nullable();
-            $table->unsignedBigInteger('RoleID')->nullable();
+
+
 
             $table->softDeletes();
         });
