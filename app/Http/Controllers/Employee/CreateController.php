@@ -9,6 +9,6 @@ use Illuminate\Http\Request;
 class CreateController extends BaseController
 {
     public function __invoke(){
-        return view('employees.create');
+        // return view('employees.create');
     }
 }
