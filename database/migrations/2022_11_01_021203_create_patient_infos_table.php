@@ -16,12 +16,12 @@ return new class extends Migration
         Schema::create('patient_infos', function (Blueprint $table) {
             $table->id();
 
-            $table->string('PatientName');
-            $table->string('PatientSurname');
-            $table->string('PatientPatronymic');
+            $table->string('Name');
+            $table->string('Surname');
+            $table->string('Patronymic');
             $table->date('BirthDate');
             $table->boolean('Sex');
-            $table->string('ResidenceRegion');
+            $table->unsignedBigInteger('ClinicID');
 
             $table->timestamps();
 

@@ -44,3 +44,18 @@ Route::group([
     Route::patch('/employees/{employee}', 'UpdateController');
     Route::delete('/employees/{employee}', 'DeleteController');
 });
+
+Route::group([
+    'namespace'=>'App\Http\Controllers\PatientInfo',
+    'middleware'=>'jwt.auth',
+], function(){
+    Route::get('/patients', 'IndexController');
+    Route::get('/patients/create', 'CreateController');
+    Route::post('/patients', 'StoreController');
+    Route::get('/patients/{patient}', 'ShowController');
+    Route::get('/patients/{patient}/edit', 'EditController');
+    Route::patch('/patients/{patient}', 'UpdateController');
+    Route::delete('/patients/{patient}', 'DeleteController');
+});
+
+

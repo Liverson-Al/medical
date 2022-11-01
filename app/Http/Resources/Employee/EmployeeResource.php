@@ -23,7 +23,7 @@ class EmployeeResource extends JsonResource
             'Patronymic'    => $employee->Patronymic,
             'BirthDate'     => $employee->BirthDate,
             'Sex'           => $employee->Sex,
-            'WorkPlaceID'   => $employee->WorkPlaceID,
+            'ClinicID'      => $employee->ClinicID,
             'RoleID'        => $employee->RoleID,
             'OccupationID'  => $employee->OccupationID,
             'WorkExperience'=> $employee->WorkExperience,

@@ -15,9 +15,9 @@ class Employee extends Model
         return $this->belongsTo(Occupation::class);
     }
 
-    public function WorkPlaceID()
+    public function clinic()
     {
-        return $this->belongsTo(WorkPlaceID::class);
+        return $this->belongsTo(Clinic::class);
     }
 
     public function role()

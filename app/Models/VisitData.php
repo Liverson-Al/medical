@@ -15,6 +15,6 @@ class VisitData extends Model
     }
 
     public function patientinfo(){
-        return $this->belongsTo(patientinfo::class);
+        return $this->belongsTo(Patientinfo::class);
     }
 }

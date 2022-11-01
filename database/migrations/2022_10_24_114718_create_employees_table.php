@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('Patronymic');
             $table->date('BirthDate');
             $table->boolean('Sex');
-            $table->unsignedBigInteger('WorkPlaceID');
+            $table->unsignedBigInteger('ClinicID');
             $table->unsignedBigInteger('RoleID');
             $table->unsignedBigInteger('OccupationID');
             $table->integer('WorkExperience');

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Employee;
+namespace App\Http\Requests\PatientInfo;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -30,9 +30,6 @@ class StoreRequest extends FormRequest
             'BirthDate'=>'date',
             'Sex'=>'boolean',
             'ClinicID'=>'int',
-            'RoleID'=>'int',
-            'OccupationID'=>'int',
-            'WorkExperience'=>'string',
         ];
     }
 }
