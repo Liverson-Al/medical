@@ -11,6 +11,6 @@ class Occupation extends Model
     protected $guarded = false;
 
     public function employee(){
-        return $this->hasMany(employee::class);
+        return $this->hasMany(User::class);
     }
 }

@@ -13,6 +13,6 @@ class Clinic extends Model
 
     public function employee()
     {
-        return $this->hasMany(employee::class);
+        return $this->hasMany(User::class);
     }
 }

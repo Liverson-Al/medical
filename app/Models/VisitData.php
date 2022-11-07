@@ -11,7 +11,7 @@ class VisitData extends Model
     protected $guarded = false;
 
     public function employee(){
-        return $this->belongsTo(employee::class);
+        return $this->belongsTo(User::class);
     }
 
     public function patientinfo(){
