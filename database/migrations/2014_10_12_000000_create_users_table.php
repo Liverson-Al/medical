@@ -18,7 +18,6 @@ return new class extends Migration
             $table->id();
             $table->string('email')->unique();
             $table->string('password');
-            $table->rememberToken();
 
             $table->string('Name')->nullable();
             $table->string('Surname')->nullable();
@@ -30,6 +29,7 @@ return new class extends Migration
             $table->unsignedBigInteger('OccupationID')->nullable();
             $table->integer('WorkExperience')->nullable();
 
+            $table->softDeletes();
             $table->timestamps();
         });
     }

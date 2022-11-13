@@ -29,7 +29,6 @@ Route::group([
     Route::post('logout', 'AuthController@logout');
     Route::post('refresh', 'AuthController@refresh');
     Route::post('me', 'AuthController@me');
-
 });
 
 Route::group([
@@ -57,5 +56,7 @@ Route::group([
     Route::patch('/patients/{patient}', 'UpdateController');
     Route::delete('/patients/{patient}', 'DeleteController');
 });
+
+
 
 

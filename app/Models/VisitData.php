@@ -17,4 +17,18 @@ class VisitData extends Model
     public function patientinfo(){
         return $this->belongsTo(Patientinfo::class);
     }
+    public function ClinicalData()
+    {
+        return $this->hasMany(ClinicalData::class);
+    }
+
+    public function Echocardiography()
+    {
+        return $this->hasMany(Echocardiography::class);
+    }
+
+    public function MSQCAngiographyAorta()
+    {
+        return $this->hasMany(MSQCAngiographyAorta::class);
+    }
 }

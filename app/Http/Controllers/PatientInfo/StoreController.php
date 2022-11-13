@@ -7,12 +7,14 @@ use App\Http\Requests\PatientInfo\StoreRequest;
 use App\Http\Resources\PatientInfo\PatientInfoResource;
 use App\Models\Patientinfo;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 class StoreController extends BaseController
 {
-    public function __invoke(StoreRequest $request){
+    public function __invoke(StoreRequest $request, Response $response){
         $patient = $request->validated();
         $patient = Patientinfo::create($patient);
-        return new PatientInfoResource($patient);
+        $patient->saveOrFail();
+        return $response->setStatusCode(201);
     }
 }

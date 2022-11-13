@@ -2,22 +2,25 @@
 
 namespace App\Http\Controllers\User;
 
-use App\Http\Controllers\Controller;
+use App\Models\User;
 use App\Http\Requests\User\UpdateRequest;
 use App\Http\Resources\User\UserResource;
-use App\Models\User;
-use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use League\CommonMark\Extension\FrontMatter\Listener\FrontMatterPostRenderListener;
 
 class UpdateController extends BaseController
 {
     public function __invoke(UpdateRequest $request, User $user, Response $response){
         $data = $request->validated();
+        //$user->Name = $request->Name;
         $user->update($data);
-        $user = $user->fresh();
-        return $response->setStatusCode(202);
+        $user->save();
+        return $user;
+        //return $response->setStatusCode(202);
+        return $response->setStatusCode(202)->setContent(new UserResource($user));
 
+
+        //return $response->setStatusCode(202)->setContent(new AnthropometryResource($anthropometry));
         //return redirect()->route('employees.show', $employee->id);
+        //return new AnthropometryResource($anthropometry);
     }
 }
