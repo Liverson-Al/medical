@@ -14,7 +14,7 @@ services:
   app:
     build:
       context: .
-      dockerfile: ../../wamp64/www/heartProj/app/_docker/app/Dockerfile
+      dockerfile: /_docker/app/Dockerfile
     volumes:
       - ./:/var/www
     depends_on:
