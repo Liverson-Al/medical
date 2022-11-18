@@ -12,6 +12,7 @@ class IndexController extends BaseController
 {
     public function __invoke(){
         $users = User::all();
+        //$users = User::paginate(5);
         return UserResource::collection($users);
         // return view('employees', compact('employees'));
     }

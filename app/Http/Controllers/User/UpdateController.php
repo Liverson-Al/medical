@@ -9,12 +9,15 @@ use Illuminate\Http\Response;
 
 class UpdateController extends BaseController
 {
-    public function __invoke(UpdateRequest $request, User $user, Response $response){
+    public function __invoke(UpdateRequest $request, $userID, Response $response){
+
         $data = $request->validated();
-        //$user->Name = $request->Name;
-        $user->update($data);
-        $user->save();
-        return $user;
+        $user = User::where('id', $userID)->update($data);
+        $user = User::find($userID);
+        //$user1 = $user->update($data);
+        return $response->setStatusCode(202)->setContent(new UserResource($user));
+
+        return UserResource::collection($user)->resolve();
         //return $response->setStatusCode(202);
         return $response->setStatusCode(202)->setContent(new UserResource($user));
 

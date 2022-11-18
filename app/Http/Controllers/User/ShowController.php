@@ -9,7 +9,8 @@ use Illuminate\Http\Request;
 
 class ShowController extends BaseController
 {
-    public function __invoke(User $user){
+    public function __invoke($userID){
+        $user = User::find($userID);
         return new UserResource($user);
         //return view('employees.show', compact('employee'));
     }

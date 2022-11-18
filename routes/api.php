@@ -36,10 +36,10 @@ Route::group([
     'middleware'=>'jwt.auth',
 ], function(){
     Route::get('/users', 'IndexController');
-    Route::get('/users/create', 'CreateController');
+    //Route::get('/users/create', 'CreateController');
     Route::post('/users', 'StoreController');
     Route::get('/users/{user}', 'ShowController');
-    Route::get('/users/{user}/edit', 'EditController');
+    //Route::get('/users/{user}/edit', 'EditController');
     Route::patch('/users/{user}', 'UpdateController');
     Route::delete('/users/{user}', 'DeleteController');
 });
@@ -49,10 +49,10 @@ Route::group([
     'middleware'=>'jwt.auth',
 ], function(){
     Route::get('/patients', 'IndexController');
-    Route::get('/patients/create', 'CreateController');
+    //Route::get('/patients/create', 'CreateController');
     Route::post('/patients', 'StoreController');
     Route::get('/patients/{patient}', 'ShowController');
-    Route::get('/patients/{patient}/edit', 'EditController');
+    //Route::get('/patients/{patient}/edit', 'EditController');
     Route::patch('/patients/{patient}', 'UpdateController');
     Route::delete('/patients/{patient}', 'DeleteController');
 });
