@@ -17,18 +17,28 @@ class UserResource extends JsonResource
 
     public function toArray($request)
     {
-        //$user = $this->resource;
+        $user = $this->resource;
+        //$clinic = Clinic();
         return [
-            'id'            => $this->id,
-            'Name'          => $this->Name,
-            'Surname'       => $this->Surname,
-            'Patronymic'    => $this->Patronymic,
-            'BirthDate'     => $this->BirthDate,
-            'Sex'           => $this->Sex,
-            'ClinicID'      => $this->ClinicID,
-            'RoleID'        => $this->RoleID,
-            'OccupationID'  => $this->OccupationID,
-            'WorkExperience'=> $this->WorkExperience,
+            'id'            => $user->id,
+            'email'         => $user->email,
+            'name'          => $user->Name,
+            'surname'       => $user->Surname,
+            'patronymic'    => $user->Patronymic,
+            'birthdate'     => $user->BirthDate,
+            'sex'           => $user->Sex,
+            //'ClinicID'      => $user->ClinicID,
+            'region'        => "Северо-западный регион",
+            'city'        => "Санкт-Петербург'",
+            'placeOfWork'        => "СПБГУ",
+
+            //'RoleID'        => $user->RoleID,
+            'role'        => $user->RoleID,
+
+            //'OccupationID'  => $user->OccupationID,
+            'occupation'  => "главный врач",
+
+            'workExperience'=> $user->WorkExperience,
         ];
     }
 }

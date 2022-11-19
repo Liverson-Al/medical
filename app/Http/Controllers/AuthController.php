@@ -44,6 +44,7 @@ class AuthController extends Controller
      */
     public function me()
     {
+        //dd("auth()->user");
         return response()->json(auth()->user());
     }
 
@@ -66,7 +67,8 @@ class AuthController extends Controller
      */
     public function refresh()
     {
-        return $this->respondWithToken(auth()->refresh());
+        $token = auth()->refresh();
+        return $this->respondWithToken($token);
     }
 
     /**
