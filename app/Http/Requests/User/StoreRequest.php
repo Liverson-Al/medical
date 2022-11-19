@@ -33,7 +33,8 @@ class StoreRequest extends FormRequest
             'Sex'           =>'boolean',
             'ClinicID'      =>'int',
             'RoleID'        =>'int',
-            'OccupationID'  =>'int',
+            //'OccupationID'  =>'int',
+            'Occupation'  =>'string',
             'WorkExperience'=>'string',
         ];
     }

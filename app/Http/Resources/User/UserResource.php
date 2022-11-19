@@ -27,7 +27,7 @@ class UserResource extends JsonResource
             'patronymic'    => $user->Patronymic,
             'birthdate'     => $user->BirthDate,
             'sex'           => $user->Sex,
-            //'ClinicID'      => $user->ClinicID,
+            'ClinicID'      => $user->Clinic->region,
             'region'        => "Северо-западный регион",
             'city'        => "Санкт-Петербург'",
             'placeOfWork'        => "СПБГУ",
