@@ -14,12 +14,34 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        \App\Models\Clinic::factory(1)->create();
+        \App\Models\Occupation::factory(1)->create();
+        \App\Models\Occupation::factory()->create([
+            "Value" => "Разработчик"
+        ]);
+        for ($i = 1; $i <= 7; $i++){
+            \App\Models\Role::factory()->create([
+                "Value" => $i,
+            ]);
+        }
+
+
          \App\Models\User::factory(10)->create();
 
-//         \App\Models\User::factory()->create([
-//             'name' => '1',
-//             'email' => '123123123@mail.ru',
-//             'password' => '$2y$10$xKg/S8IFputjcKM9WhoZ/uw.H127hNCv2vjBNbV3TIOwjmEzht7Lq'
-//         ]);
+         \App\Models\User::factory()->create([
+             'Name' => 'Руслан',
+             'Surname' => 'Даутов',
+             'Patronymic' =>"Хурматович",
+             'BirthDate' =>  "2002-8-01",
+             'email' => 'dautov.r@spbu.heart.ru',
+             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
+             'Sex' => 1,
+             'ClinicID' => 1,
+             'RoleID' => 2,
+             'OccupationID' => 2,
+             'WorkExperience' => 1
+         ]);
+
+
     }
 }

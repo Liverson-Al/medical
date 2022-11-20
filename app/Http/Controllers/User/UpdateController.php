@@ -10,7 +10,6 @@ use Illuminate\Http\Response;
 class UpdateController extends BaseController
 {
     public function __invoke(UpdateRequest $request, $userID, Response $response){
-
         $data = $request->validated();
         $user = User::where('id', $userID)->update($data);
         $user = User::find($userID);

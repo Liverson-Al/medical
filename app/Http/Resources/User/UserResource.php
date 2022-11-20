@@ -26,17 +26,21 @@ class UserResource extends JsonResource
             'surname'       => $user->Surname,
             'patronymic'    => $user->Patronymic,
             'birthdate'     => $user->BirthDate,
-            'sex'           => $user->Sex,
-            'ClinicID'      => $user->Clinic->region,
+            'sex'           => strval($user->Sex),
+            //'ClinicID'      => $user->Clinic->region,
             'region'        => "Северо-западный регион",
+            //'region'        => $user->clinic()->Region,
+            //'city'          => $user->clinic()->City,
+            //'placeOfWork'   => $user->clinic()->Name,
             'city'        => "Санкт-Петербург'",
             'placeOfWork'        => "СПБГУ",
 
             //'RoleID'        => $user->RoleID,
-            'role'        => $user->RoleID,
+            'role'          => strval($user->RoleID),
 
             //'OccupationID'  => $user->OccupationID,
-            'occupation'  => "главный врач",
+            //'occupation'    => $user->occupation('OccupationID')->Value,
+            'occupation'    => "главный врач",
 
             'workExperience'=> $user->WorkExperience,
         ];

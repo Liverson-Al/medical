@@ -31,11 +31,15 @@ class StoreRequest extends FormRequest
             'Patronymic'    =>'string',
             'BirthDate'     =>'date',
             'Sex'           =>'boolean',
-            'ClinicID'      =>'int',
-            'RoleID'        =>'int',
+            //'ClinicID'      =>'int',
+            'region'        =>'string',
+            'city'          =>'string',
+            'placeOfWork'   =>'string',
+
+            'Role'        =>'int',
             //'OccupationID'  =>'int',
             'Occupation'  =>'string',
-            'WorkExperience'=>'string',
+            'WorkExperience'=>'int',
         ];
     }
 }

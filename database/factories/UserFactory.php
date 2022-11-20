@@ -20,9 +20,9 @@ class UserFactory extends Factory
             'Patronymic' => fake()->firstNameMale(),
             'BirthDate' => fake()->date(),
             'Sex' => fake()->boolean(),
-            'ClinicID' => rand(1, 10),
-            'RoleID' => rand(1, 5),
-            'OccupationID' => rand(1, 5),
+            'ClinicID' => 1,
+            'RoleID' => 1,
+            'OccupationID' => 1,
             'WorkExperience' => rand(1, 100)
         ];
     }

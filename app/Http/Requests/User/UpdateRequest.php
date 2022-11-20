@@ -14,6 +14,7 @@ class UpdateRequest extends FormRequest
     public function rules()
     {
         return [
+            'id'=>'int',
             'email'=>'email',
             'password'=>'string',
             'Name'=>'string',

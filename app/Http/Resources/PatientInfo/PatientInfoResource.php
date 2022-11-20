@@ -24,13 +24,22 @@ class PatientInfoResource extends JsonResource
             'surname'        => $patient->Surname,
             'patronymic'     => $patient->Patronymic,
             'birthdate'      => $patient->BirthDate,
-//            'age'            => PatientInfo::calculate_age($patient->BirthDate),
+//            'age'            => calculate_age($patient->BirthDate),
             'sex'            => $patient->Sex,
+            'age'            => $this->calculate_age($patient->BirthDate),
             //'region'         => $clinic->Region,
             //'city'           => $clinic->City,
             //'residenseregion'=> $clinic->Name,
             'ClinicID'      => $patient->ClinicID,
-
         ];
+    }
+
+    private function calculate_age($birthday) {
+        $birthday_timestamp = strtotime($birthday);
+        $age = date('Y') - date('Y', $birthday_timestamp);
+        if (date('md', $birthday_timestamp) > date('md')) {
+            $age--;
+        }
+        return $age;
     }
 }
