@@ -36,13 +36,13 @@ Route::group([
     'namespace'=>'App\Http\Controllers\User',
     'middleware'=>'jwt.auth',
 ], function(){
-    Route::get('/users', 'IndexController');
+    Route::get('/doctors', 'IndexController');
     //Route::get('/users/create', 'CreateController');
-    Route::post('/users', 'StoreController');
-    Route::get('/users/{user}', 'ShowController');
+    Route::post('/newdoctor', 'StoreController');
+    Route::get('/doctors/{id}', 'ShowController');
     //Route::get('/users/{user}/edit', 'EditController');
-    Route::patch('/users/{user}', 'UpdateController');
-    Route::delete('/users/{user}', 'DeleteController');
+    Route::patch('/doctors/editdoctor/${id}', 'UpdateController');
+    Route::delete('/doctors/{id}', 'DeleteController');
 });
 
 Route::group([
