@@ -23,7 +23,7 @@ class PatientInfoZGLResource extends JsonResource
             'surname'        => "Щеглов",
             'patronymic'     => "Павлович",
             'birthdate'      => "1995-10-11",
-            'sex'            => "1",
+            'sex'            => 1,
             'age'            => 27,
             'region'        => "Северо-западный регион",
             'city'          => "Санкт-Петербург",
