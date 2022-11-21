@@ -11,7 +11,7 @@ class Clinic extends Model
 
     protected $guarded = false;
 
-    public function employee()
+    public function user()
     {
         return $this->hasMany(User::class);
     }

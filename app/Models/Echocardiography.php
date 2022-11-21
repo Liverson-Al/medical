@@ -9,9 +9,9 @@ class Echocardiography extends Model
 {
     use HasFactory;
 
-    public function user()
+    public function PatientInfo()
     {
-        return $this->belongsToMany(User::class);
+        return $this->belongsToMany(PatientInfo::class);
     }
 
     public function VisitData()

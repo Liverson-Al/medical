@@ -28,7 +28,7 @@ Route::group([
 
     Route::post('login', 'AuthController@login');
     Route::post('logout', 'AuthController@logout');
-    Route::post('refresh', 'AuthController@refresh');
+    Route::get('refresh', 'AuthController@refresh');
     Route::post('me', 'AuthController@me');
 });
 
@@ -51,11 +51,11 @@ Route::group([
 ], function(){
     Route::get('/patients', 'IndexController');
     //Route::get('/patients/create', 'CreateController');
-    Route::post('/patients', 'StoreController');
-    Route::get('/patients/{patient}', 'ShowController');
+    Route::post('/newpatient', 'StoreController');
+    Route::get('/patients/{id}', 'ShowController');
     //Route::get('/patients/{patient}/edit', 'EditController');
-    Route::patch('/patients/{patient}', 'UpdateController');
-    Route::delete('/patients/{patient}', 'DeleteController');
+    Route::patch('/patients/{id}', 'UpdateController');
+    Route::delete('/patients/{id}', 'DeleteController');
 });
 
 

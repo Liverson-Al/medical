@@ -83,28 +83,29 @@ class User extends Authenticatable implements JWTSubject
         return $this->hasMany(VisitData::class);
     }
 
-    public function ConcomDisease()
-    {
-        return $this->hasMany(ConcomDisease::class);
-    }
+//    public function ConcomDisease()
+//    {
+//        return $this->hasMany(ConcomDisease::class);
+//    }
 
-    public function PatientHistory()
-    {
-        return $this->hasMany(PatientHistory::class);
-    }
+//    public function PatientHistory()
+//    {
+//        return $this->hasMany(PatientHistory::class);
+//    }
 
-    public function Anthropometry()
-    {
-        return $this->hasMany(Anthropometry::class);
-    }
+//    public function Anthropometry()
+//    {
+//        return $this->hasMany(Anthropometry::class);
+//    }
 
-    public function ClinicalData()
-    {
-        return $this->hasMany(ClinicalData::class);
-    }
+//    public function ClinicalData()
+//    {
+//        return $this->hasMany(ClinicalData::class);
+//    }
 
-    public function MSQCAngiographyAorta()
-    {
-        return $this->hasMany(MSQCAngiographyAorta::class);
-    }
+//    public function MSQCAngiographyAorta()
+//    {
+//        return $this->hasMany(MSQCAngiographyAorta::class);
+//    }
+
 }

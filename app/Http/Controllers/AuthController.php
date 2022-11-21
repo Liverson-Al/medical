@@ -3,9 +3,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\User\UserResource;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 
+use Illuminate\Support\Facades\Log;
 use Tymon\JWTAuth\Http\Middleware\RefreshToken;
 use Tymon\JWTAuth\JWTAuth;
 
@@ -81,11 +83,11 @@ class AuthController extends Controller
     protected function respondWithToken($token)
     {
         return response()->json([
-            'access_token' => $token,
-            'refresh_token' => $token,
-            'token_type' => 'bearer',
-            'expires_in' => auth()->factory()->getTTL() * 60,
-            'user' => auth()->user(),
+            'accessToken' => $token,
+            'refreshToken' => $token,
+            //'token_type' => 'bearer',
+            //'expires_in' => auth()->factory()->getTTL() * 60,
+            'user'=> new UserResource(auth()->user()),
         ]);
     }
 }

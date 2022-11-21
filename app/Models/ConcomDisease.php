@@ -10,12 +10,12 @@ class ConcomDisease extends Model
     use HasFactory;
     protected $guarded = False;
 
-    public function user(){
-        return $this->belongsToMany(User::class);
-    }
+//    public function user(){
+//        return $this->belongsToMany(User::class);
+//    }
 
-    public function patientinfo(){
-        return $this->belongsTo(Patientinfo::class);
+    public function PatientInfo(){
+        return $this->belongsTo(PatientInfo::class);
     }
 
 }

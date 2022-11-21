@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('Patronymic');
             $table->date('BirthDate');
             $table->boolean('Sex');
+            $table->string('race');
             $table->unsignedBigInteger('ClinicID');
 
             $table->timestamps();

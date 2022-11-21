@@ -14,8 +14,8 @@ class PatientHistory extends Model
         return $this->belongsTo(PatientInfo::class);
     }
 
-    public function user()
-    {
-        return $this->belongsToMany(User::class);
-    }
+//    public function user()
+//    {
+//        return $this->belongsToMany(User::class);
+//    }
 }

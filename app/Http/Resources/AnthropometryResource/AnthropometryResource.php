@@ -17,21 +17,23 @@ class AnthropometryResource extends JsonResource
         $anthropometry = $this->resource;
         return [
 
-            'patient_id'=>$anthropometry->patient_id,
+            //'patient_id'=>$anthropometry->patient_id,
             'height'=>$anthropometry->height,
             'weight'=>$anthropometry->weight,
-            'BMI'=>$anthropometry->BMI,
-            'BSA'=>$anthropometry->BSA,
-            'DBM'=>$anthropometry->DBM,
-            'CTDS'=>$anthropometry->CTDS,
-            'Marfan'=>$anthropometry->Marfan,
-            'EhlersDanlos'=>$anthropometry->EhlersDanlos,
-            'LoeysDitz'=>$anthropometry->LoeysDitz,
-            'Terner'=>$anthropometry->Terner,
-            'Noonan'=>$anthropometry->Noonan,
-            'user_id'=>$anthropometry->user_id,
-            'version'=>$anthropometry->version,
-            'date'=>$anthropometry->date,
+            'body_mass_index'=>$anthropometry->BMI,
+            'body_surface_area'=>$anthropometry->BSA,
+            'body_type'=>$anthropometry->DBM,
+            'connective_tissue_dysplasia'=>$anthropometry->CTDS,
+            'connective_tissue_dysplasia_Marfan'=>$anthropometry->Marfan,
+            'connective_tissue_dysplasia_EhlersDanlos'=>$anthropometry->EhlersDanlos,
+            'connective_tissue_dysplasia_LoeysDitz'=>$anthropometry->LoeysDitz,
+            'connective_tissue_dysplasia_Terner'=>$anthropometry->Terner,
+            'connective_tissue_dysplasia_Noonan'=>$anthropometry->Noonan,
+            //'user_id'=>$anthropometry->user_id,
+            //'version'=>$anthropometry->version,
+            'version'=>0,
+            //'date'=>$anthropometry->date,
+            'date'=>0,
 
         ];
     }

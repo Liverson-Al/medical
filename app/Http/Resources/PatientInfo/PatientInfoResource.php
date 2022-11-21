@@ -17,20 +17,22 @@ class PatientInfoResource extends JsonResource
     public function toArray($request)
     {
         $patient = $this->resource;
-        $clinic = Clinic::find($patient->ClinicID);
         return [
-            'id'             => $patient->id,
+            'id'             => strval($patient->id),
             'name'           => $patient->Name,
             'surname'        => $patient->Surname,
             'patronymic'     => $patient->Patronymic,
             'birthdate'      => $patient->BirthDate,
-//            'age'            => calculate_age($patient->BirthDate),
             'sex'            => $patient->Sex,
-            'age'            => $this->calculate_age($patient->BirthDate),
+            'age'            => 27,
+            //'age'            => $this->calculate_age($patient->BirthDate),
             //'region'         => $clinic->Region,
             //'city'           => $clinic->City,
             //'residenseregion'=> $clinic->Name,
-            'ClinicID'      => $patient->ClinicID,
+            'region'        => "Северо-западный регион",
+            'city'          => "Санкт-Петербург",
+            'residenseregion'   => "Северо-западный регион",
+            //'ClinicID'      => $patient->ClinicID,
         ];
     }
 

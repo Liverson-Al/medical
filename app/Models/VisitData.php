@@ -10,13 +10,15 @@ class VisitData extends Model
     use HasFactory;
     protected $guarded = false;
 
-    public function employee(){
+    public function user(){
         return $this->belongsTo(User::class);
     }
 
-    public function patientinfo(){
+    public function patientinfo()
+    {
         return $this->belongsTo(Patientinfo::class);
     }
+
     public function ClinicalData()
     {
         return $this->hasMany(ClinicalData::class);

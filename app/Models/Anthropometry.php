@@ -8,11 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Anthropometry extends Model
 {
     use HasFactory;
-    public function user(){
-        return $this->belongsToMany(User::class);
-    }
+//    public function user(){
+//        return $this->belongsToMany(User::class);
+//    }
 
-    public function patientinfo(){
+    public function PatientInfo(){
         return $this->belongsTo(Patientinfo::class);
     }
 }
