@@ -13,26 +13,28 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('patienthistories', function (Blueprint $table) {
+        Schema::create('patient_histories', function (Blueprint $table) {
             $table->id();
-            $table->tinyInteger('dis_heart_blood_vessels_first_line_relatives');
-            $table->tinyInteger('relatives_conn_tiss_dysplasia');
-            $table->tinyInteger('heart_surgeries_pr');
-            $table->string('heart_surgeries_type');
-            $table->tinyInteger('genetic_analysis_pr');
-            $table->tinyInteger('genetic_analysis_res');
-            $table->integer('smoking_experience');
-            $table->integer('alko_consumption_experince');
-            $table->integer('drug_consumption_experience');
-            $table->string('occupational_hazards');
+            $table->integer('patient_id');
+            $table->boolean('disHeartBloodVesselsFirstLineRelatives');
+            $table->boolean('relativesConnTissDysplasia');
+            $table->boolean('heartSurgeriesPr');
+            $table->string('heartSurgeriesType');
+            $table->boolean('geneticAnalysisPr');
+            $table->string('geneticAnalysisRes');
+            $table->integer('smokingExperience');
+            $table->integer('alkoConsumptionExperince');
+            $table->integer('drugConsumptionExperince');
+            $table->string('occupationalHazards');
             $table->string('sports');
-            $table->date('disease_knowledge');
-            $table->tinyInteger('works');
-            $table->tinyInteger('blood_thin_drugs');
-            $table->tinyInteger('disaggregants');
-            $table->unsignedBigInteger('user_id');
+            $table->date('diseaseKnowledge');
+            $table->boolean('employed');
+            $table->boolean('blodThinDrugs');
+            $table->boolean('disaggregants');
+            $table->integer('user_id');
             $table->integer('version');
-            $table->dateTime('date');
+            //$table->dateTime('date');
+            $table->date('date');
             $table->timestamps();
         });
     }
@@ -44,7 +46,7 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('patienthistories');
+        Schema::dropIfExists('patient_histories');
     }
 };
 

@@ -17,11 +17,11 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('visit_id');
             $table->string('main_diag');
-            $table->tinyInteger('Aortic_dissection');
-            $table->tinyInteger('intramural_hematoma');
-            $table->tinyInteger('aortic_rupture');
+            $table->boolean('aortic_dissection');
+            $table->boolean('intramural_hematoma');
+            $table->boolean('aortic_rupture');
             $table->string('patient_state');
-            $table->tinyInteger('pain_beh_stern');
+            $table->boolean('pain_beh_stern');
             $table->string('interscap_reg_pain');
             $table->string('conscious_loss');
             $table->string('low_extrem_ischemia');

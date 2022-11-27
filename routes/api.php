@@ -45,7 +45,7 @@ Route::group([
     Route::patch('/doctors/editdoctor/${id}', 'UpdateController');
     Route::delete('/doctors/{id}', 'DeleteController');
 });
-// /api/doctors
+
 Route::group([
     'namespace'=>'App\Http\Controllers\PatientInfo',
     'middleware'=>'jwt.auth',

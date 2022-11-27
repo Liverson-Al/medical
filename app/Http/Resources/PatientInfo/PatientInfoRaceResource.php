@@ -43,12 +43,12 @@ class PatientInfoRaceResource extends JsonResource
                 'version'       => 0,
                 //'ClinicID'      => $patient->ClinicID,
          ],
-            "anthropometric_data" => AnthropometryResource::collection($patient->whenLoaded("patient_id")),
-            "clinical_data" => ClinicalDataResource::collection($patient->whenLoaded("visit_id")),
-            "concom_desease" => ConcomDiseaseResource::collection($patient->whenLoaded("patient_id")),
-            "anamnesis" => PatientHistoryResource::collection($patient->whenLoaded("id")),
-            "echocardiogram" => EchocardiographyResource::collection($patient->whenLoaded("VisitPatientID")),
-            "MCT" => MSQCAngiographyAortaResource::collection($patient->whenLoaded("VisitPatientID")),
+            "anthropometric_data" => new AnthropometryResource($this->resource),
+            "clinical_data" => new ClinicalDataResource($this->resource),
+            "concom_desease" => new ConcomDiseaseResource($this->resource),
+            "anamnesis" => new PatientHistoryResource($this->resource),
+            "echocardiogram" => new EchocardiographyResource($this->resource),
+            "MCT" => new MSQCAngiographyAortaResource($this->resource),
          ];
     }
 

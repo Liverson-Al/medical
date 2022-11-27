@@ -15,22 +15,22 @@ return new class extends Migration
     {
         Schema::create('echocardiographies', function (Blueprint $table) {
             $table->id();
-            $table->string('VisitPatientID');
+            $table->integer('visit_id');
             $table->string('LVEF');
             $table->string('LVEDV');
             $table->string('LVESV');
-            $table->string('AscAorticD');
-            $table->string('ValsalvaSinusesD');
+            $table->string('ascAorticD');
+            $table->string('valsalvaSinusesD');
             $table->string('AVLeafletN');
             $table->string('AVAnnuFibrD');
-            $table->string('PeakSpeedAV');
+            $table->string('peakSpeedAV');
             $table->string('AVPressureGradientMax');
             $table->string('AVPressureGradientMean');
-            $table->tinyInteger('AorticRegurgitationDegree');
-            $table->string('PulmArterySysBP');
-            $table->string('MitralInsuffStenPrD');
-            $table->string('Tricuspi');
-            $table->string('AtrialSeptalDefectPr');
+            $table->boolean('aorticRegurgitationDegree');
+            $table->string('pulmArterySysBP');
+            $table->string('mitralInsuffStenPrD');
+            $table->string('tricuspi');
+            $table->string('trialSeptalDefectPr');
             $table->unsignedBigInteger('user_id');
             $table->integer('version');
             $table->date('date');

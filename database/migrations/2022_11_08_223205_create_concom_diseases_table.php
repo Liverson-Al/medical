@@ -13,36 +13,37 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('concomdiseases', function (Blueprint $table) {
+        Schema::create('concom_diseases', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('patient_id');
+            $table->integer('patient_id');
             $table->string('cor_heart_disease_clinic');
-            $table->integer('acute_myocardial_infarction_num');
-            $table->tinyInteger('current_myocardial_infarction');
-            $table->tinyInteger('diabetes');
-            $table->string('diabetes_type');
-            $table->tinyInteger('cerebrovascular_disease');
-            $table->tinyInteger('BCAStenosis');
-            $table->tinyInteger('transient_ischemic_attack');
-            $table->tinyInteger('ACVA');
-            $table->tinyInteger('chronic_lung_disease');
-            $table->tinyInteger('prev_infectious_disease');
-            $table->tinyInteger('rhythm_conclusion_disturbances');
-            $table->tinyInteger('thyroid_disease');
-            $table->tinyInteger('acute_renal_failure');
-            $table->tinyInteger('chronic_renal_failure');
-            $table->tinyInteger('oncology');
-            $table->tinyInteger('hematological_disease');
-            $table->tinyInteger('pulmonary_embolism');
-            $table->tinyInteger('chest_wall_injury');
-            $table->string('aortic_valve');
-            $table->tinyInteger('acquired_AV_disease');
-            $table->tinyInteger('AV_degenerative_lesions');
-            $table->tinyInteger('AV_infectious_lesions');
-            $table->tinyInteger('AVW_traumatic_lesions');
-            $table->unsignedBigInteger('user_id');
+            $table->integer('acuteMyocardilInfarctionNum');
+            $table->boolean('currentMyocardilInfarction');
+            $table->boolean('diabetes');
+            $table->string('diabetesType');
+            $table->boolean('cerebrovascularDisease');
+            $table->boolean('BCAStenosis');
+            $table->boolean('translschAttack');
+            $table->boolean('ACVA');
+            $table->boolean('chronicLungDisease');
+            $table->boolean('prevInfectiousDisease');
+            $table->boolean('rhythmConcluctionDisturbances');
+            $table->boolean('thyroidDisease');
+            $table->boolean('acuteRenalFailure');
+            $table->boolean('chronicRenalFailure');
+            $table->boolean('oncology');
+            $table->boolean('hematologicalDisease');
+            $table->boolean('pulmonaryEmbolism');
+            $table->boolean('chestWallInjury');
+            $table->string('aorticValve');
+            $table->boolean('acquiredAVDisease');
+            $table->boolean('AVDegenerativeLesions');
+            $table->boolean('AVInfectiousLesions');
+            $table->boolean('AVWTraumaticLesionsb');
+            $table->integer('user_id');
             $table->integer('version');
-            $table->dateTime('date');
+            //$table->dateTime('date');
+            $table->date('date');
             $table->timestamps();
         });
     }
@@ -54,6 +55,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('concomdiseases');
+        Schema::dropIfExists('concom_diseases');
     }
 };

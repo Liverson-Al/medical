@@ -6,14 +6,16 @@ use App\Models\Clinic;
 use App\Models\PatientInfo;
 use Illuminate\Http\Resources\Json\JsonResource;
 
+/**
+ * Transform the resource into an array.
+ *
+ * @param  \Illuminate\Http\Request  $request
+ * @return array|\Illuminate\Contracts\Support\Arrayable|\JsonSerializable
+ */
+
 class PatientInfoResource extends JsonResource
 {
-    /**
-     * Transform the resource into an array.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return array|\Illuminate\Contracts\Support\Arrayable|\JsonSerializable
-     */
+
     public function toArray($request)
     {
         $patient = $this->resource;
@@ -36,12 +38,12 @@ class PatientInfoResource extends JsonResource
         ];
     }
 
-    private function calculate_age($birthday) {
-        $birthday_timestamp = strtotime($birthday);
-        $age = date('Y') - date('Y', $birthday_timestamp);
-        if (date('md', $birthday_timestamp) > date('md')) {
-            $age--;
-        }
-        return $age;
-    }
+//    private function calculate_age($birthday) {
+//        $birthday_timestamp = strtotime($birthday);
+//        $age = date('Y') - date('Y', $birthday_timestamp);
+//        if (date('md', $birthday_timestamp) > date('md')) {
+//            $age--;
+//        }
+//        return $age;
+//    }
 }

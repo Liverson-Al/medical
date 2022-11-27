@@ -15,14 +15,14 @@ return new class extends Migration
     {
         Schema::create('m_s_q_c_angiography_aortas', function (Blueprint $table) {
             $table->id();
-            $table->string('VisitPatientID');
+            $table->integer('VisitPatientID');
             $table->integer('AV_annulus_fibrosis');
             $table->integer('sinuses_valsalva');
             $table->integer('sinotubular_junction');
             $table->integer('asc_aorta_pulm_art_bif');
             $table->integer('asc_aorta_before_BCS');
-            $table->integer('AorticArchBeforeCCA');
-            $table->integer('aorticArchBeforeLSA');
+            $table->integer('aortic_arch_before_CCA');
+            $table->integer('aortic_arch_before_LSA');
             $table->integer('aorticlsthmus');
             $table->integer('desc_aorta_middle_part');
             $table->integer('abdominal_aorta');

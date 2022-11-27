@@ -15,6 +15,12 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         \App\Models\Clinic::factory(1)->create();
+        \App\Models\Anthropometry::factory(1)->create();
+        \App\Models\PatientHistory::factory(1)->create();
+        \App\Models\ClinicalData::factory(1)->create();
+        \App\Models\ConcomDisease::factory(1)->create();
+        \App\Models\Echocardiography::factory(1)->create();
+        \App\Models\MSQCAngiographyAorta::factory(1)->create();
         \App\Models\Occupation::factory(1)->create();
         \App\Models\Occupation::factory()->create([
             "Value" => "Разработчик"
@@ -27,6 +33,7 @@ class DatabaseSeeder extends Seeder
 
 
          \App\Models\User::factory(10)->create();
+         \App\Models\PatientInfo::factory(10)->create();
 
          \App\Models\User::factory()->create([
              'Name' => 'Руслан',

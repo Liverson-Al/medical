@@ -33,7 +33,7 @@ class UserResource extends JsonResource
             //'city'          => $user->clinic()->City,
             //'placeOfWork'   => $user->clinic()->Name,
             'city'        => "Санкт-Петербург",
-            'placeofwork'        => "СПБГУ",
+            'placeOfWork'        => "СПБГУ",
 
             //'RoleID'        => $user->RoleID,
             'role'          => $user->RoleID,

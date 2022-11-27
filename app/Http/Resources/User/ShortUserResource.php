@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Hash;
  * @return array
  */
 
-class AllUsersResource extends JsonResource
+class ShortUserResource extends JsonResource
 {
 
     public function toArray($request)
