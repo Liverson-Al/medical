@@ -19,7 +19,7 @@ class ClinicalDataResource extends JsonResource
 
             //'visit_id'=>$clinicaldata->visit_id,
             'main_diag'=>$clinicaldata->main_diag,
-            'aortic_dissection'=>$clinicaldata->Aortic_dissection,
+            'aortic_dissection'=>$clinicaldata->aortic_dissection,
             'intramural_hematoma'=>$clinicaldata->intramural_hematoma,
             'aortic_rupture'=>$clinicaldata->aortic_rupture,
             'patient_state'=>$clinicaldata->patient_state,
@@ -27,7 +27,7 @@ class ClinicalDataResource extends JsonResource
             'interscap_reg_pain'=>$clinicaldata->interscap_reg_pain,
             'conscious_loss'=>$clinicaldata->conscious_loss,
             'low_extrem_ischemia'=>$clinicaldata->low_extrem_ischemia,
-            'empoyeeID'=>$clinicaldata->user_id,
+            //'empoyeeID'=>$clinicaldata->user_id,
             //'version'=>$clinicaldata->version,
             'version'=>0,
             //'date'=>$clinicaldata->date,

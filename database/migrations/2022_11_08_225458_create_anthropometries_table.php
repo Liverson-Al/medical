@@ -16,17 +16,18 @@ return new class extends Migration
         Schema::create('anthropometries', function (Blueprint $table) {
             $table->id();
             $table->integer('patient_id');
-            $table->float('height');
-            $table->float('weight');
-            $table->integer('body_mass_index');
-            $table->integer('body_surface_area');
-            $table->integer('body_type');
-            $table->boolean('connective_tissue_dysplasia');
-            $table->boolean('connective_tissue_dysplasia_Marfan');
-            $table->boolean('connective_tissue_dysplasia_EhlersDanlos');
-            $table->boolean('connective_tissue_dysplasia_LoeysDitz');
-            $table->boolean('connective_tissue_dysplasia_Terner');
-            $table->boolean('connective_tissue_dysplasia_Noonan');
+
+            $table->integer('height'); // рост
+            $table->integer('weight'); // вес
+            $table->integer('body_mass_index'); // индекс массы тела
+            $table->integer('body_surface_area'); //площадь поверхности тела
+            $table->string('body_type'); // тип тела
+            $table->boolean('connective_tissue_dysplasia'); // дисплазия соединительных тканей
+            $table->boolean('connective_tissue_dysplasia_Marfan');  // синдром Марфана
+            $table->boolean('connective_tissue_dysplasia_EhlersDanlos'); // синдром Элерса-Данло
+            $table->boolean('connective_tissue_dysplasia_LoeysDitz'); // синдром Лойеса-Дитц
+            $table->boolean('connective_tissue_dysplasia_Terner'); // синдром Тернера
+            $table->boolean('connective_tissue_dysplasia_Noonan'); // синдром Нуана
             $table->unsignedBigInteger('user_id');
             $table->integer('version');
             $table->date('date');

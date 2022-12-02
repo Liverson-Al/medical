@@ -16,15 +16,17 @@ return new class extends Migration
         Schema::create('clinical_data', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('visit_id');
-            $table->string('main_diag');
-            $table->boolean('aortic_dissection');
-            $table->boolean('intramural_hematoma');
-            $table->boolean('aortic_rupture');
-            $table->string('patient_state');
-            $table->boolean('pain_beh_stern');
-            $table->string('interscap_reg_pain');
-            $table->string('conscious_loss');
-            $table->string('low_extrem_ischemia');
+
+            $table->string('main_diag'); // основной диагноз
+            $table->boolean('aortic_dissection');  // наличие расслоения аорты
+            $table->boolean('intramural_hematoma'); // наличие интрамуральной гематомы
+            $table->boolean('aortic_rupture'); // наличие разрыва аорты
+            $table->string('patient_state'); // стабильное/нестабильное состояние
+            $table->boolean('pain_beh_stern'); // боли за грудиной
+            $table->boolean('interscap_reg_pain'); // боли в межлопаточной области
+            $table->boolean('conscious_loss'); // потеря сознания
+            $table->boolean('low_extrem_ischemia'); // ишемия нижних конечностей
+
             $table->unsignedBigInteger('user_id');
             $table->integer('version');
             $table->date('date');

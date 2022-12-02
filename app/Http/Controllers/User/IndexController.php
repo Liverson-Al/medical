@@ -15,6 +15,5 @@ class IndexController extends BaseController
         $users = User::all();
         //$users = User::paginate(5);
         return ShortUserResource::collection($users);
-        // return view('employees', compact('employees'));
     }
 }

@@ -14,8 +14,9 @@ class ConcomDiseaseFactory extends Factory
     {
         return [
             'patient_id' =>1,
-            'cor_heart_disease_clinic'=>"ИНФОРМАЦИЯ",
-            'acuteMyocardilInfarctionNum'=>2,
+            'clinicIschHeartDis'=>rand(0, 1),
+            'acuteMyocardilInfarctionBool'=>rand(0, 1),
+            'acuteMyocardilInfarctionNum'=>rand(0, 2),
             'currentMyocardilInfarction'=>rand(0, 1),
             'diabetes'=>rand(0, 1),
             'diabetesType'=>"ИНФОРМАЦИЯ",

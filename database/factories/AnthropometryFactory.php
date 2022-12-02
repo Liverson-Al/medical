@@ -17,7 +17,7 @@ class AnthropometryFactory extends Factory
             'height'=>rand(140, 200),
             'weight'=>rand(60, 100),
             'body_mass_index'=>rand(1, 5),
-            'body_surface_area'=>60,
+            'body_surface_area'=>rand(40, 60),
             'body_type'=>rand(1, 5),
             'connective_tissue_dysplasia'=>rand(0, 1),
             'connective_tissue_dysplasia_Marfan'=>rand(0, 1),

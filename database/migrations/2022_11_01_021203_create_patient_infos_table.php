@@ -23,6 +23,7 @@ return new class extends Migration
             $table->boolean('Sex');
             $table->string('race');
             $table->unsignedBigInteger('ClinicID');
+            $table->integer('version')->nullable();
 
             $table->timestamps();
 
