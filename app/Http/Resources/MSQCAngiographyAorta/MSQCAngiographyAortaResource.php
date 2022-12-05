@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources\MSQCAngiographyAorta;
 
+use App\Models\MSQCAngiographyAorta;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class MSQCAngiographyAortaResource extends JsonResource
@@ -14,7 +15,8 @@ class MSQCAngiographyAortaResource extends JsonResource
      */
     public function toArray($request)
     {
-        $msqcangiographyaorta = $this->resource;
+        $patient = $this->resource;
+        $msqcangiographyaorta = MSQCAngiographyAorta::find($patient->id);
         return [
 
             //'VisitPatientID'=>$msqcangiographyaorta->VisitPatientID,

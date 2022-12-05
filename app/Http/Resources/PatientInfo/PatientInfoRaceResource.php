@@ -7,8 +7,8 @@ use App\Http\Resources\ClinicalData\ClinicalDataResource;
 use App\Http\Resources\ConcomDisease\ConcomDiseaseResource;
 use App\Http\Resources\Echocardiography\EchocardiographyResource;
 use App\Http\Resources\MSQCAngiographyAorta\MSQCAngiographyAortaResource;
-use App\Http\Resources\PatientCollection;
 use App\Http\Resources\PatientHistory\PatientHistoryResource;
+use App\Models\Anthropometry;
 use App\Models\Clinic;
 use App\Models\PatientInfo;
 use Illuminate\Http\Resources\Json\JsonResource;
@@ -24,8 +24,10 @@ class PatientInfoRaceResource extends JsonResource
     public function toArray($request)
     {
         $patient = $this->resource;
+        $clinic = Clinic::find($patient->ClinicID);
+        $anthropometric_data = Anthropometry::find($patient->id);
         return [
-            "patientID"=> strval($patient->id),
+            "patientID"=> $patient->id,
             "employee_id"=> 1,
             "personal_data" => [
 
@@ -34,30 +36,17 @@ class PatientInfoRaceResource extends JsonResource
                 'patronymic'     => $patient->Patronymic,
                 'birthday'      => $patient->BirthDate,
                 'sex'            => strval($patient->Sex),
-                //'region'         => $clinic->Region,
-                //'city'           => $clinic->City,
-                //'residenseregion'=> $clinic->Name,
-                'region'        => "Северо-западный регион",
-                'clinic'          => "СПБГУ",
+                'region'         => $clinic->Region,
+                'residenseregion'=> $clinic->Name,
                 'race'          => 'evr',
                 'version'       => 0,
-                //'ClinicID'      => $patient->ClinicID,
          ],
-            "anthropometric_data" => new AnthropometryResource($this->resource),
-            "clinical_data" => new ClinicalDataResource($this->resource),
-            "concom_desease" => new ConcomDiseaseResource($this->resource),
-            "anamnesis" => new PatientHistoryResource($this->resource),
-            "echocardiogram" => new EchocardiographyResource($this->resource),
-            "MCT" => new MSQCAngiographyAortaResource($this->resource),
+            "anthropometric_data" => new AnthropometryResource($patient),
+            "clinical_data" => new ClinicalDataResource($patient),
+            "concom_desease" => new ConcomDiseaseResource($patient),
+            "anamnesis" => new PatientHistoryResource($patient),
+            "echocardiogram" => new EchocardiographyResource($patient),
+            "MCT" => new MSQCAngiographyAortaResource($patient),
          ];
-    }
-
-    private function calculate_age($birthday) {
-        $birthday_timestamp = strtotime($birthday);
-        $age = date('Y') - date('Y', $birthday_timestamp);
-        if (date('md', $birthday_timestamp) > date('md')) {
-            $age--;
-        }
-        return $age;
     }
 }

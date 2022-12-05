@@ -13,6 +13,6 @@ class Anthropometry extends Model
 //    }
 
     public function PatientInfo(){
-        return $this->belongsTo(Patientinfo::class);
+        return $this->belongsTo(PatientInfo::class);
     }
 }

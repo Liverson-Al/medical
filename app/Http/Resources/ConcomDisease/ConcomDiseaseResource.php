@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources\ConcomDisease;
 
+use App\Models\ConcomDisease;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class ConcomDiseaseResource extends JsonResource
@@ -14,7 +15,8 @@ class ConcomDiseaseResource extends JsonResource
      */
     public function toArray($request)
     {
-        $concomdisease = $this->resource;
+        $patient = $this->resource;
+        $concomdisease = ConcomDisease::find($patient->id);
         return [
             //'patient_id'=>$concomdisease->patient_id,
             'clinicIschHeartDis'=>$concomdisease->clinicIschHeartDis,

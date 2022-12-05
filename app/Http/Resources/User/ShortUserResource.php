@@ -2,9 +2,8 @@
 
 namespace App\Http\Resources\User;
 
-use App\Http\Resources\ClinicResource;
+use App\Models\Clinic;
 use Illuminate\Http\Resources\Json\JsonResource;
-use Illuminate\Support\Facades\Hash;
 
 /**
  * Transform the resource into an array.
@@ -13,23 +12,40 @@ use Illuminate\Support\Facades\Hash;
  * @return array
  */
 
+function calculate_age($birthday)
+{
+    $birthday_timestamp = strtotime($birthday);
+    $age = date('Y') - date('Y', $birthday_timestamp);
+    if (date('md', $birthday_timestamp) > date('md')) {
+        $age--;
+    }
+    return $age;
+}
+
 class ShortUserResource extends JsonResource
 {
 
     public function toArray($request)
     {
+
+
         $user = $this->resource;
-        //$clinic = ClinicResource::collection($user);
+        $clinic = Clinic::find($user->ClinicID);
+
+        $birthday_timestamp = strtotime($user->BirthDate);
+        $age = date('Y') - date('Y', $birthday_timestamp);
+        if (date('md', $birthday_timestamp) > date('md')) {
+            $age--;
+        }
+
         return [
             'id'            => $user->id,
             'name'          => $user->Name,
             'surname'       => $user->Surname,
             'patronymic'    => $user->Patronymic,
-            'age'           => 25,
-            'city'        => "Санкт-Петербург",
-//            'city'        => $clinic->City,
-            'placeOfWork'        => "СПБГУ",
-//            'placeOfWork'        => $clinic->Name,
+            'age'           => $age,
+            'city'          => $clinic->City,
+            'placeOfWork'   => $clinic->Name,
             'workExperience'=> $user->WorkExperience,
         ];
     }

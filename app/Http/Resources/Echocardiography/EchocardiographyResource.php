@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources\Echocardiography;
 
+use App\Models\Echocardiography;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class EchocardiographyResource extends JsonResource
@@ -14,7 +15,8 @@ class EchocardiographyResource extends JsonResource
      */
     public function toArray($request)
     {
-        $echocardiography = $this->resource;
+        $patient = $this->resource;
+        $echocardiography = Echocardiography::find($patient->id);
         return [
 
             //'VisitPatientID'=>$echocardiography->VisitPatientID,

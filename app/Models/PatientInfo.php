@@ -10,10 +10,10 @@ class PatientInfo extends Model
     use HasFactory;
     protected $guarded = false;
 
-    public function Anthropometry()
-    {
-        return $this->hasMany(Anthropometry::class);
-    }
+//    public function Anthropometry()
+//    {
+//        return $this->hasMany(Anthropometry::class);
+//    }
 
         public function ConcomDisease()
     {
@@ -33,6 +33,11 @@ class PatientInfo extends Model
     public function MSQCAngiographyAorta()
     {
         return $this->hasMany(MSQCAngiographyAorta::class);
+    }
+
+    public function clinic()
+    {
+        return $this->belongsTo(Clinic::class);
     }
 
 

@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources\ClinicalData;
 
+use App\Models\ClinicalData;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class ClinicalDataResource extends JsonResource
@@ -14,7 +15,8 @@ class ClinicalDataResource extends JsonResource
      */
     public function toArray($request)
     {
-        $clinicaldata = $this->resource;
+        $patient = $this->resource;
+        $clinicaldata = ClinicalData::find($patient->id);
         return [
 
             //'visit_id'=>$clinicaldata->visit_id,

@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources\AnthropometryResource;
 
+use App\Models\Anthropometry;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class AnthropometryResource extends JsonResource
@@ -14,7 +15,8 @@ class AnthropometryResource extends JsonResource
      */
     public function toArray($request)
     {
-        $anthropometry = $this->resource;
+        $patient = $this->resource;
+        $anthropometry = Anthropometry::find($patient->id);
         return [
 
             //'patient_id'=>$anthropometry->patient_id,

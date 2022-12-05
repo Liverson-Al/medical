@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources\PatientHistory;
 
+use App\Models\PatientHistory;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class PatientHistoryResource extends JsonResource
@@ -14,7 +15,8 @@ class PatientHistoryResource extends JsonResource
      */
     public function toArray($request)
     {
-        $patienthistory = $this->resource;
+        $patient = $this->resource;
+        $patienthistory = PatientHistory::find($patient->id);
         return [
             //'id'=>$patienthistory->id,
             'disHeartBloodVesselsFirstLineRelatives'=>$patienthistory->disHeartBloodVesselsFirstLineRelatives,

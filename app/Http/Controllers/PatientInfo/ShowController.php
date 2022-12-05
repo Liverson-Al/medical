@@ -3,16 +3,18 @@
 namespace App\Http\Controllers\PatientInfo;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\PatientInfo\PatientInfoRaceResource;
 use App\Http\Resources\PatientInfo\PatientInfoRaceZGLResource;
 use App\Http\Resources\PatientInfo\PatientInfoResource;
-use App\Models\Patientinfo;
+use App\Models\PatientInfo;
 use Illuminate\Http\Request;
 
 class ShowController extends BaseController
 {
-    public function __invoke(Patientinfo $patient){
+    public function __invoke($patientID){
+        $patient = PatientInfo::find($patientID);
         //return new PatientInfoRaceZGLResource($patient);
-        return new PatientInfoRaceZGLResource($patient);
+        return new PatientInfoRaceResource($patient);
         //return view('patients.show', compact('patient'));
     }
 }

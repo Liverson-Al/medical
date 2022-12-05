@@ -2,6 +2,8 @@
 
 namespace App\Http\Resources\User;
 
+use App\Models\Clinic;
+use App\Models\Occupation;
 use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Support\Facades\Hash;
 
@@ -18,7 +20,8 @@ class UserResource extends JsonResource
     public function toArray($request)
     {
         $user = $this->resource;
-        //$clinic = Clinic();
+        $clinic = Clinic::find($user->ClinicID);
+        $occupation = Occupation::find($user->OccupationID);
         return [
             'id'            => $user->id,
             'email'         => $user->email,
@@ -27,20 +30,15 @@ class UserResource extends JsonResource
             'patronymic'    => $user->Patronymic,
             'birthdate'     => $user->BirthDate,
             'sex'           => $user->Sex,
-            //'ClinicID'      => $user->Clinic->region,
-            'region'        => "Северо-западный регион",
-            //'region'        => $user->clinic()->Region,
-            //'city'          => $user->clinic()->City,
-            //'placeOfWork'   => $user->clinic()->Name,
-            'city'        => "Санкт-Петербург",
-            'placeOfWork'        => "СПБГУ",
 
-            //'RoleID'        => $user->RoleID,
+            'region'        => $clinic->Region,
+            'city'          => $clinic->City,
+            'placeOfWork'   => $clinic->Name,
+//            'shit' => new ShortUserResource($user),
+
             'role'          => $user->RoleID,
 
-            //'OccupationID'  => $user->OccupationID,
-            //'occupation'    => $user->occupation('OccupationID')->Value,
-            'occupation'    => "главный врач",
+            'occupation'    => $occupation->Value,
 
             'workExperience'=> $user->WorkExperience,
         ];
