@@ -45,7 +45,6 @@ return new class extends Migration
 
             $table->integer('user_id');
             $table->integer('version');
-            //$table->dateTime('date');
             $table->date('date');
             $table->timestamps();
         });

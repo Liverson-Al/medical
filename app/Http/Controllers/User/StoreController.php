@@ -15,11 +15,7 @@ class StoreController extends BaseController
 {
     public function __invoke(Request $request, Response $response){
 
-        //$request->except(['region', 'city', 'placeOfWork']);
         $request->merge(['ClinicID' => 1]);
-        //$request->except(['region', 'city', 'placeofwork']);
-        //dd($rq);
-        //$request->validate([]);
 
         //$clinic = Clinic::where("Name", "=", $request->placeofwork)->first();
         $user = new User();
@@ -30,13 +26,7 @@ class StoreController extends BaseController
         $user->fill($request->all());
         $user->password = Hash::make($request->get('password'));
         $user->saveOrFail();
-        //$user = Hash::make($data->password);
-        //$this->service->store($employee); - через baseController и Service, но чёт не работает
         return $response->setStatusCode(201);
-
-
-        //return redirect()->route('employees.index');
-
 
     }
 }

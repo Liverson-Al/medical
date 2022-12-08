@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('patient_histories', function (Blueprint $table) {
             $table->id();
             $table->integer('patient_id');
+
             $table->string('disHeartBloodVesselsFirstLineRelatives'); // Заболевания сердца и сосудов у родственников первой линии (дедушки/бабушки, папы/мамы, братья/сестры, дети, внуки)
             $table->boolean('relativesConnTissDysplasia'); // Наличие соединительно-тканевой дисплазии у родстенников
             $table->boolean('heartSurgeriesPr'); // Наличие операций на сердце в прошлом
@@ -37,7 +38,6 @@ return new class extends Migration
 
             $table->integer('user_id');
             $table->integer('version');
-            //$table->dateTime('date');
             $table->date('date');
             $table->timestamps();
         });
