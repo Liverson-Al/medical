@@ -34,7 +34,7 @@ Route::group([
 
 Route::group([
     'namespace'=>'App\Http\Controllers\User',
-    'middleware'=>'jwt.auth',
+    'middleware'=>['jwt.auth', 'cors'],
 ], function(){
     Route::get('/doctors', 'IndexController');
     Route::get('/doctors/-1', 'AllController');
@@ -46,7 +46,7 @@ Route::group([
 
 Route::group([
     'namespace'=>'App\Http\Controllers\PatientInfo',
-    'middleware'=>'jwt.auth',
+    'middleware'=>['jwt.auth', 'cors'],
 ], function(){
     Route::get('/patients', 'IndexController');
     Route::get('/patients/-1', 'IndexController');
