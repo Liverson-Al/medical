@@ -17,20 +17,20 @@ return new class extends Migration
             $table->id();
             $table->integer('patient_id');
 
-            $table->integer('height'); // рост
-            $table->integer('weight'); // вес
-            $table->integer('body_mass_index'); // индекс массы тела
-            $table->integer('body_surface_area'); //площадь поверхности тела
-            $table->string('body_type'); // тип тела
-            $table->boolean('connective_tissue_dysplasia'); // дисплазия соединительных тканей
-            $table->boolean('connective_tissue_dysplasia_Marfan');  // синдром Марфана
-            $table->boolean('connective_tissue_dysplasia_EhlersDanlos'); // синдром Элерса-Данло
-            $table->boolean('connective_tissue_dysplasia_LoeysDitz'); // синдром Лойеса-Дитц
-            $table->boolean('connective_tissue_dysplasia_Terner'); // синдром Тернера
-            $table->boolean('connective_tissue_dysplasia_Noonan'); // синдром Нуана
-            $table->unsignedBigInteger('user_id');
-            $table->integer('version');
-            $table->date('date');
+            $table->integer('height')->nullable(); // рост
+            $table->integer('weight')->nullable(); // вес
+            $table->integer('body_mass_index')->nullable(); // индекс массы тела
+            $table->integer('body_surface_area')->nullable(); //площадь поверхности тела
+            $table->string('body_type')->nullable(); // тип тела
+            $table->boolean('connective_tissue_dysplasia')->nullable(); // дисплазия соединительных тканей
+            $table->boolean('connective_tissue_dysplasia_Marfan')->nullable();  // синдром Марфана
+            $table->boolean('connective_tissue_dysplasia_EhlersDanlos')->nullable(); // синдром Элерса-Данло
+            $table->boolean('connective_tissue_dysplasia_LoeysDitz')->nullable(); // синдром Лойеса-Дитц
+            $table->boolean('connective_tissue_dysplasia_Terner')->nullable(); // синдром Тернера
+            $table->boolean('connective_tissue_dysplasia_Noonan')->nullable(); // синдром Нуана
+            $table->unsignedBigInteger('user_id')->nullable();
+            $table->integer('version')->nullable();
+            $table->date('date')->nullable();
             $table->timestamps();
         });
     }

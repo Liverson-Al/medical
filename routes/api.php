@@ -38,10 +38,8 @@ Route::group([
 ], function(){
     Route::get('/doctors', 'IndexController');
     Route::get('/doctors/-1', 'AllController');
-    //Route::get('/users/create', 'CreateController');
     Route::post('/newdoctor', 'StoreController');
     Route::get('/doctors/{id}', 'ShowController');
-    //Route::get('/users/{user}/edit', 'EditController');
     Route::patch('/doctors/editdoctor/${id}', 'UpdateController');
     Route::delete('/doctors/{id}', 'DeleteController');
 });

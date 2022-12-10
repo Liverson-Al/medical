@@ -19,20 +19,20 @@ return new class extends Migration
 
             // все в мм
             // Диамтер на уровне:
-            $table->integer('AV_annulus_fibrosis');  // Фиброзное кольцо аортального клапана
-            $table->integer('sinuses_valsalva'); // Синусы Вальсальвы
-            $table->integer('sinotubular_junction'); // Синотубулярное соединение
-            $table->integer('asc_aorta_pulm_art_bif'); // Восходящий отдел аорты на уровне бифуркации легочной артерии
-            $table->integer('asc_aorta_before_BCS'); // Восходящий отдел аорты перед БЦС
-            $table->integer('aortic_arch_before_CCA'); // Дуги аорты перед ЛОСА
-            $table->integer('aortic_arch_before_LSA'); // Дуги аорты перед левой подключичной артерии
-            $table->integer('aorticlsthmus'); // перешеек
-            $table->integer('desc_aorta_middle_part'); // средняя часть нисходящей аорты
-            $table->integer('abdominal_aorta'); // брюшная аорта
+            $table->integer('AV_annulus_fibrosis')->nullable();  // Фиброзное кольцо аортального клапана
+            $table->integer('sinuses_valsalva')->nullable(); // Синусы Вальсальвы
+            $table->integer('sinotubular_junction')->nullable(); // Синотубулярное соединение
+            $table->integer('asc_aorta_pulm_art_bif')->nullable(); // Восходящий отдел аорты на уровне бифуркации легочной артерии
+            $table->integer('asc_aorta_before_BCS')->nullable(); // Восходящий отдел аорты перед БЦС
+            $table->integer('aortic_arch_before_CCA')->nullable(); // Дуги аорты перед ЛОСА
+            $table->integer('aortic_arch_before_LSA')->nullable(); // Дуги аорты перед левой подключичной артерии
+            $table->integer('aorticlsthmus')->nullable(); // перешеек
+            $table->integer('desc_aorta_middle_part')->nullable(); // средняя часть нисходящей аорты
+            $table->integer('abdominal_aorta')->nullable(); // брюшная аорта
 
-            $table->unsignedBigInteger('user_id');
-            $table->integer('version');
-            $table->date('date');
+            $table->unsignedBigInteger('user_id')->nullable();
+            $table->integer('version')->nullable();
+            $table->date('date')->nullable();
             $table->timestamps();
         });
     }

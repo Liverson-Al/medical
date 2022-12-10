@@ -17,19 +17,19 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('visit_id');
 
-            $table->string('main_diag'); // основной диагноз
-            $table->boolean('aortic_dissection');  // наличие расслоения аорты
-            $table->boolean('intramural_hematoma'); // наличие интрамуральной гематомы
-            $table->boolean('aortic_rupture'); // наличие разрыва аорты
-            $table->string('patient_state'); // стабильное/нестабильное состояние
-            $table->boolean('pain_beh_stern'); // боли за грудиной
-            $table->boolean('interscap_reg_pain'); // боли в межлопаточной области
-            $table->boolean('conscious_loss'); // потеря сознания
-            $table->boolean('low_extrem_ischemia'); // ишемия нижних конечностей
+            $table->string('main_diag')->nullable(); // основной диагноз
+            $table->boolean('aortic_dissection')->nullable();  // наличие расслоения аорты
+            $table->boolean('intramural_hematoma')->nullable(); // наличие интрамуральной гематомы
+            $table->boolean('aortic_rupture')->nullable(); // наличие разрыва аорты
+            $table->string('patient_state')->nullable(); // стабильное/нестабильное состояние
+            $table->boolean('pain_beh_stern')->nullable(); // боли за грудиной
+            $table->boolean('interscap_reg_pain')->nullable(); // боли в межлопаточной области
+            $table->boolean('conscious_loss')->nullable(); // потеря сознания
+            $table->boolean('low_extrem_ischemia')->nullable(); // ишемия нижних конечностей
 
-            $table->unsignedBigInteger('user_id');
-            $table->integer('version');
-            $table->date('date');
+            $table->unsignedBigInteger('user_id')->nullable();
+            $table->integer('version')->nullable();
+            $table->date('date')->nullable();
             $table->timestamps();
         });
     }

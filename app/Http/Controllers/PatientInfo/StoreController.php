@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\PatientInfo;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\PatientInfo\StoreRequest;
 use App\Models\Anthropometry;
+use App\Models\Clinic;
 use App\Models\ClinicalData;
 use App\Models\ConcomDisease;
 use App\Models\Echocardiography;
@@ -20,10 +20,16 @@ class StoreController extends BaseController
 
         $patientID = $request->patientID;
         $employee_id = $request->employee_id;
+        $request->request->add(['ClinicID' => 1]);
+        $ClinicID = 1;
+
 
         $personal_data = new PatientInfo();
-        $personal_data->id = $patientID;
-        $personal_data->fill($request->personal_data);
+        $pd = $request->personal_data;
+        unset($pd["clinic"]);
+        unset($pd["region"]);
+        $pd['ClinicID'] = $ClinicID;
+        $personal_data->fill($pd);
         $personal_data->saveOrFail();
 
         if ($request->anthropometric_data) {
@@ -31,6 +37,11 @@ class StoreController extends BaseController
             $anthropometric_data->patient_id = $patientID;
             $anthropometric_data->user_id = $employee_id;
             $anthropometric_data->fill($request->anthropometric_data);
+            $anthropometric_data->saveOrFail();
+        } else {
+            $anthropometric_data = new Anthropometry();
+            $anthropometric_data->patient_id = $patientID;
+            $anthropometric_data->user_id = $employee_id;
             $anthropometric_data->saveOrFail();
         }
 
@@ -40,22 +51,38 @@ class StoreController extends BaseController
             $clinical_data->user_id = $employee_id;
             $clinical_data->fill($request->clinical_data);
             $clinical_data->saveOrFail();
+        } else {
+            $clinical_data = new ClinicalData();
+            $clinical_data->visit_id = $patientID;
+            $clinical_data->user_id = $employee_id;
+            $clinical_data->saveOrFail();
         }
 
-        if($request->concom_desease) {
+        if ($request->concom_desease) {
             $concom_desease = new ConcomDisease();
             $concom_desease->patient_id = $patientID;
             $concom_desease->user_id = $employee_id;
             $concom_desease->fill($request->concom_desease);
+            $concom_desease->saveOrFail();
+        } else {
+            $concom_desease = new ConcomDisease();
+            $concom_desease->patient_id = $patientID;
+            $concom_desease->user_id = $employee_id;
             $concom_desease->saveOrFail();
         }
 
 
         if ($request->anamnesis) {
             $anamnesis = new PatientHistory();
+
             $anamnesis->patient_id = $patientID;
             $anamnesis->user_id = $employee_id;
             $anamnesis->fill($request->anamnesis);
+            $anamnesis->saveOrFail();
+        } else {
+            $anamnesis = new PatientHistory();
+            $anamnesis->patient_id = $patientID;
+            $anamnesis->user_id = $employee_id;
             $anamnesis->saveOrFail();
         }
 
@@ -65,20 +92,25 @@ class StoreController extends BaseController
             $echocardiogram->user_id = $employee_id;
             $echocardiogram->fill($request->echocardiogram);
             $echocardiogram->saveOrFail();
+        } else {
+            $echocardiogram = new Echocardiography();
+            $echocardiogram->visit_id = $patientID;
+            $echocardiogram->user_id = $employee_id;
+            $echocardiogram->saveOrFail();
         }
 
         if ($request->MCT) {
             $MCT = new MSQCAngiographyAorta();
-            $echocardiogram->VisitPatientID = $patientID;
-            $echocardiogram->user_id = $employee_id;
+            $MCT->VisitPatientID = $patientID;
+            $MCT->user_id = $employee_id;
             $MCT->fill($request->MCT);
             $MCT->saveOrFail();
+        } else {
+            $MCT = new MSQCAngiographyAorta();
+            $MCT->VisitPatientID = $patientID;
+            $MCT->user_id = $employee_id;
+            $MCT->saveOrFail();
         }
-
-
-//        $patient = $request->validated();
-//        $patient = Patientinfo::create($patient);
-//        $patient->saveOrFail();
 
         return $response->setStatusCode(201);
     }

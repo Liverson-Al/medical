@@ -8,6 +8,7 @@ use App\Http\Resources\ConcomDisease\ConcomDiseaseResource;
 use App\Http\Resources\Echocardiography\EchocardiographyResource;
 use App\Http\Resources\MSQCAngiographyAorta\MSQCAngiographyAortaResource;
 use App\Http\Resources\PatientHistory\PatientHistoryResource;
+use App\Http\Resources\User\UserResource;
 use App\Models\Anthropometry;
 use App\Models\Clinic;
 use App\Models\PatientInfo;
@@ -25,10 +26,10 @@ class PatientInfoRaceResource extends JsonResource
     {
         $patient = $this->resource;
         $clinic = Clinic::find($patient->ClinicID);
-        $anthropometric_data = Anthropometry::find($patient->id);
+        $user = new UserResource(auth()->user());
         return [
             "patientID"=> $patient->id,
-            "employee_id"=> 1,
+            "employee_id"=> $user['id'],
             "personal_data" => [
 
                 'first_name'           => $patient->Name,
