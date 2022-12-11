@@ -55,23 +55,7 @@ class UpdateController extends BaseController
             $request->MCT = MSQCAngiographyAorta::find($patientID);
         }
 
-
-        $res = new Request();
-        $patient = PatientInfo::where('id', $patientID)->first()->toArray();
-        $anthropometric_data = Anthropometry::where('id', $patientID)->first()->toArray();
-        $clinical_data = ClinicalData::where('id', $patientID)->first()->toArray();
-        $concom_desease = ConcomDisease::where('id', $patientID)->first()->toArray();
-        $anamnesis = PatientHistory::where('id', $patientID)->first()->toArray();
-        $echocardiogram = Echocardiography::where('id', $patientID)->first()->toArray();
-        $MCT = MSQCAngiographyAorta::where('id', $patientID)->first()->toArray();
-        $res->request->add(["patient_info" => $patient]);
-        $res->request->add(["anthropometric_data" => $anthropometric_data]);
-        $res->request->add(["clinical_data" => $clinical_data]);
-        $res->request->add(["concom_desease" => $concom_desease]);
-        $res->request->add(["anamnesis" => $anamnesis]);
-        $res->request->add(["echocardiogram" => $echocardiogram]);
-        $res->request->add(["MCT" => $MCT]);
-
-        return $response->setStatusCode(202)->setContent(new PatientInfoRaceResource($res));
+        $patient = PatientInfo::where('id', $patientID)->first();
+        return $response->setStatusCode(202)->setContent(new PatientInfoRaceResource($patient));
     }
 }
