@@ -2,7 +2,7 @@
 
 namespace App\Http\Resources\PatientInfo;
 
-use App\Http\Resources\AnthropometryResource\AnthropometryResource;
+use App\Http\Resources\Anthropometry\AnthropometryResource;
 use App\Http\Resources\ClinicalData\ClinicalDataResource;
 use App\Http\Resources\ConcomDisease\ConcomDiseaseResource;
 use App\Http\Resources\Echocardiography\EchocardiographyResource;

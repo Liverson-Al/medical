@@ -16,7 +16,7 @@ class StoreController extends BaseController
 
         $request->merge(['ClinicID' => 1]);
 
-        //$clinic = Clinic::where("Name", "=", $request->placeofwork)->first();
+        //$clinic = ClinicResource::where("Name", "=", $request->placeofwork)->first();
         $user = new User();
         $user->fill([
 

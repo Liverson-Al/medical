@@ -50,12 +50,21 @@ Route::group([
 ], function(){
     Route::get('/patients', 'IndexController');
     Route::get('/patients/-1', 'IndexController');
-    //Route::get('/patients/create', 'CreateController');
     Route::post('/newpatient', 'StoreController');
     Route::get('/patients/{id}', 'ShowController');
-    //Route::get('/patients/{patient}/edit', 'EditController');
     Route::patch('/patients/{id}', 'UpdateController');
     Route::delete('/patients/{id}', 'DeleteController');
+});
+
+Route::group([
+    'namespace'=>'App\Http\Controllers\Clinic',
+    'middleware'=>['jwt.auth'],
+], function(){
+    Route::get('/clinics', 'IndexController');
+    Route::post('/newclinic', 'StoreController');
+    Route::get('/clinics/{id}', 'ShowController');
+    Route::patch('/clinics/{id}', 'UpdateController');
+    Route::delete('/clinics/{id}', 'DeleteController');
 });
 
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Resources\AnthropometryResource;
+namespace App\Http\Resources\Anthropometry;
 
 use App\Models\Anthropometry;
 use Illuminate\Http\Resources\Json\JsonResource;

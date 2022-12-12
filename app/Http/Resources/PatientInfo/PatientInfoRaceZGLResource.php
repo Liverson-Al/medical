@@ -2,15 +2,6 @@
 
 namespace App\Http\Resources\PatientInfo;
 
-use App\Http\Resources\AnthropometryResource\AnthropometryResource;
-use App\Http\Resources\ClinicalData\ClinicalDataResource;
-use App\Http\Resources\ConcomDisease\ConcomDiseaseResource;
-use App\Http\Resources\Echocardiography\EchocardiographyResource;
-use App\Http\Resources\MSQCAngiographyAorta\MSQCAngiographyAortaResource;
-use App\Http\Resources\PatientCollection;
-use App\Http\Resources\PatientHistory\PatientHistoryResource;
-use App\Models\Clinic;
-use App\Models\PatientInfo;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class PatientInfoRaceZGLResource extends JsonResource
