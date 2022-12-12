@@ -25,7 +25,7 @@ class DatabaseSeeder extends Seeder
         \App\Models\Occupation::factory()->create([
             "Value" => "Разработчик"
         ]);
-        for ($i = 1; $i <= 7; $i++){
+        for ($i = 0; $i <= 7; $i++){
             \App\Models\Role::factory()->create([
                 "Value" => $i,
             ]);
