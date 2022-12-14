@@ -22,6 +22,7 @@ class UpdateController extends BaseController
         $data = $request->all();
         if($request->personal_data){
             $pd = $data["personal_data"];
+
             if(in_array("region" || "residenseregion" || "city", $data["personal_data"])) {
                 $ClinicID = 1;
                 unset($pd["clinic"]);
@@ -29,6 +30,7 @@ class UpdateController extends BaseController
                 unset($pd["residenseregion"]);
                 $pd['ClinicID'] = $ClinicID;
             }
+            
             $patient = PatientInfo::where('id', $patientID)->update($pd);
             $request->personal_data = PatientInfo::find($patientID);
         }
