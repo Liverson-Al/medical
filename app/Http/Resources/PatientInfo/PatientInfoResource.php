@@ -31,7 +31,7 @@ class PatientInfoResource extends JsonResource
             'id'             => strval($patient->id),
             'name'           => $patient->first_name,
             'surname'        => $patient->second_name,
-            'patronymic'     => $patient->Patronymic,
+            'patronymic'     => $patient->patronymic,
             'birthdate'      => $patient->birthday,
             'sex'            => $patient->sex,
             'age'            => $age,
