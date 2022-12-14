@@ -32,11 +32,11 @@ class PatientInfoRaceResource extends JsonResource
             "employee_id"=> $user['id'],
             "personal_data" => [
 
-                'first_name'           => $patient->Name,
-                'second_name'        => $patient->Surname,
-                'patronymic'     => $patient->Patronymic,
-                'birthday'      => $patient->BirthDate,
-                'sex'            => strval($patient->Sex),
+                'first_name'           => $patient->first_name,
+                'second_name'        => $patient->second_name,
+                'patronymic'     => $patient->patronymic,
+                'birthday'      => $patient->birthday,
+                'sex'            => strval($patient->sex),
                 'region'         => $clinic->Region,
                 'residenseregion'=> $clinic->Name,
                 'race'          => 'evr',

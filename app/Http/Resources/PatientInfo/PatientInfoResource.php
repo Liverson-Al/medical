@@ -20,8 +20,8 @@ class PatientInfoResource extends JsonResource
     {
 
         $patient = $this->resource;
-        
-        $birthday_timestamp = strtotime($patient->BirthDate);
+
+        $birthday_timestamp = strtotime($patient->Birthday);
         $age = date('Y') - date('Y', $birthday_timestamp);
         if (date('md', $birthday_timestamp) > date('md')) {
             $age--;
@@ -29,11 +29,11 @@ class PatientInfoResource extends JsonResource
 
         return [
             'id'             => strval($patient->id),
-            'name'           => $patient->Name,
-            'surname'        => $patient->Surname,
+            'name'           => $patient->first_name,
+            'surname'        => $patient->second_name,
             'patronymic'     => $patient->Patronymic,
-            'birthdate'      => $patient->BirthDate,
-            'sex'            => $patient->Sex,
+            'birthdate'      => $patient->birthday,
+            'sex'            => $patient->sex,
             'age'            => $age,
             //'age'            => $this->calculate_age($patient->BirthDate),
             //'region'         => $clinic->Region,

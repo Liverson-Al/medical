@@ -21,7 +21,7 @@ class UpdateController extends BaseController
     public function __invoke(Request $request, $patientID, Response $response){
         $data = $request->all();
         if($request->personal_data){
-            $patient = PatientInfo::where('id', $patientID)->update($data["personal_data"]);
+            $patient = PatientInfo::where('id', $patientID)->update($data["patient_info"]);
             $request->personal_data = PatientInfo::find($patientID);
         }
 

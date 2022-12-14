@@ -13,11 +13,11 @@ class PatientInfoFactory extends Factory
     public function definition()
     {
         return [
-            'Name' => fake()->firstName(),
-            'Surname' => fake()->lastname(),
-            'Patronymic' => fake()->firstNameMale(),
-            'BirthDate' => fake()->date(),
-            'Sex' => fake()->boolean(),
+            'first_name' => fake()->firstName(),
+            'second_name' => fake()->lastname(),
+            'patronymic' => fake()->firstNameMale(),
+            'birthday' => fake()->date(),
+            'sex' => fake()->boolean(),
             'race' => 'evr',
             'ClinicID' => 1,
         ];
