@@ -30,7 +30,7 @@ class UpdateController extends BaseController
                 unset($pd["residenseregion"]);
                 $pd['ClinicID'] = $ClinicID;
             }
-            
+
             $patient = PatientInfo::where('id', $patientID)->update($pd);
             $request->personal_data = PatientInfo::find($patientID);
         }

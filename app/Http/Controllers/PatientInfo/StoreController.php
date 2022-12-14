@@ -24,6 +24,7 @@ class StoreController extends BaseController
         $ClinicID = 1;
 
 
+
         $personal_data = new PatientInfo();
         $pd = $request->personal_data;
         unset($pd["clinic"]);
@@ -31,6 +32,7 @@ class StoreController extends BaseController
         $pd['ClinicID'] = $ClinicID;
         $personal_data->fill($pd);
         $personal_data->saveOrFail();
+
 
         if ($request->anthropometric_data) {
             $anthropometric_data = new Anthropometry();

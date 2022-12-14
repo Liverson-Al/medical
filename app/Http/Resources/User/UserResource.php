@@ -34,7 +34,6 @@ class UserResource extends JsonResource
             'region'        => $clinic->Region,
             'city'          => $clinic->City,
             'placeOfWork'   => $clinic->Name,
-//            'shit' => new ShortUserResource($user),
 
             'role'          => $user->RoleID,
 

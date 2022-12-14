@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\User;
 
+use App\Models\Occupation;
+use App\Models\Role;
 use App\Models\User;
 use App\Http\Resources\User\UserResource;
 use Illuminate\Http\Request;
@@ -18,6 +20,14 @@ class UpdateController extends BaseController
             unset($data["placeOfWork"]);
             $data['ClinicID'] = $ClinicID;
         }
+        $occ = Occupation::where("Value", $data["occupation"])->first();
+        $data["occupationID"] = $occ["id"];
+        unset($data["occupation"]);
+
+        $role = Role::where("Value", $data["role"])->first();
+        $data["roleID"] = $role["Value"];
+        unset($data["role"]);
+
         $user = User::where("id", $userID)->update($data);
         $user = User::find($userID);
         return $response->setStatusCode(202)->setContent(new UserResource($user));
