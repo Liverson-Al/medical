@@ -44,7 +44,7 @@ class DatabaseSeeder extends Seeder
              'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
              'Sex' => 1,
              'ClinicID' => 1,
-             'RoleID' => 2,
+             'RoleID' => 0,
              'OccupationID' => 2,
              'WorkExperience' => 1
          ]);
