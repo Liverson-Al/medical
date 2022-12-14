@@ -40,7 +40,7 @@ Route::group([
     Route::get('/doctors/-1', 'AllController');
     Route::post('/newdoctor', 'StoreController');
     Route::get('/doctors/{id}', 'ShowController');
-    Route::patch('/doctors/editdoctor/${id}', 'UpdateController');
+    Route::patch('/doctors/editdoctor/{id}', 'UpdateController');
     Route::delete('/doctors/{id}', 'DeleteController');
 });
 
