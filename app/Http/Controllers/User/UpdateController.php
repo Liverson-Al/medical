@@ -11,11 +11,11 @@ class UpdateController extends BaseController
 {
     public function __invoke(Request $request, $userID, Response $response){
         $data = $request->all();
-        if(in_array("region" || "residenseregion" || "city", $data)) {
+        if(in_array("region" || "placeOfWork" || "city", $data)) {
             $ClinicID = 1;
-            unset($data["clinic"]);
+            unset($data["city"]);
             unset($data["region"]);
-            unset($data["residenseregion"]);
+            unset($data["placeOfWork"]);
             $data['ClinicID'] = $ClinicID;
         }
         $user = User::where("id", $userID)->update($data);
