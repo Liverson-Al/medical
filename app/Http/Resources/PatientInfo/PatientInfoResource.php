@@ -18,7 +18,15 @@ class PatientInfoResource extends JsonResource
 
     public function toArray($request)
     {
+
         $patient = $this->resource;
+        
+        $birthday_timestamp = strtotime($patient->BirthDate);
+        $age = date('Y') - date('Y', $birthday_timestamp);
+        if (date('md', $birthday_timestamp) > date('md')) {
+            $age--;
+        }
+
         return [
             'id'             => strval($patient->id),
             'name'           => $patient->Name,
@@ -26,7 +34,7 @@ class PatientInfoResource extends JsonResource
             'patronymic'     => $patient->Patronymic,
             'birthdate'      => $patient->BirthDate,
             'sex'            => $patient->Sex,
-            'age'            => 27,
+            'age'            => $age,
             //'age'            => $this->calculate_age($patient->BirthDate),
             //'region'         => $clinic->Region,
             //'city'           => $clinic->City,
