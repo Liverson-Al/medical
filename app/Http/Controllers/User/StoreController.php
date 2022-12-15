@@ -19,7 +19,8 @@ class StoreController extends BaseController
         $user = new User();
         $ClinicID = 1;
 
-        $data["BirthDate"] = date("Y-m-d", $data["BirthDate"] / 1000);
+        $data["BirthDate"] = date("Y-m-d", $data["birthdate"] / 1000);
+        unset($data["birthdate"]);
         unset($data["clinic"]);
         unset($data["region"]);
         unset($data["residenseregion"]);
