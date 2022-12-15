@@ -20,8 +20,9 @@ class PatientInfoResource extends JsonResource
     {
 
         $patient = $this->resource;
+        $clinic = Clinic::find($patient->ClinicID);
 
-        $birthday_timestamp = strtotime($patient->Birthday);
+        $birthday_timestamp = strtotime($patient->birthday);
         $age = date('Y') - date('Y', $birthday_timestamp);
         if (date('md', $birthday_timestamp) > date('md')) {
             $age--;
@@ -33,25 +34,11 @@ class PatientInfoResource extends JsonResource
             'surname'        => $patient->second_name,
             'patronymic'     => $patient->patronymic,
             'birthdate'      => $patient->birthday,
-            'sex'            => $patient->sex,
             'age'            => $age,
-            //'age'            => $this->calculate_age($patient->BirthDate),
-            //'region'         => $clinic->Region,
-            //'city'           => $clinic->City,
-            //'residenseregion'=> $clinic->Name,
-            'region'        => "Северо-западный регион",
-            'city'          => "Санкт-Петербург",
-            'residenseregion'   => "Северо-западный регион",
-            //'ClinicID'      => $patient->ClinicID,
+            'sex'            => $patient->sex,
+            'clinic'         => $clinic->Name,
+            'city'           => $clinic->City,
+            'residenseregion'=> $clinic->Region,
         ];
     }
-
-//    private function calculate_age($birthday) {
-//        $birthday_timestamp = strtotime($birthday);
-//        $age = date('Y') - date('Y', $birthday_timestamp);
-//        if (date('md', $birthday_timestamp) > date('md')) {
-//            $age--;
-//        }
-//        return $age;
-//    }
 }
