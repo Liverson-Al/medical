@@ -10,21 +10,24 @@ use Illuminate\Http\Response;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
+
 class StoreController extends BaseController
 {
     public function __invoke(Request $request, Response $response){
 
-        $request->merge(['ClinicID' => 1]);
-
-        //$clinic = ClinicResource::where("Name", "=", $request->placeofwork)->first();
+        $data = $request->all();
         $user = new User();
-        $user->fill([
+        $ClinicID = 1;
 
-        ]);
-        //$user->fill($request->except(['region', 'city', 'placeOfWork']));
-        $user->fill($request->all());
-        $user->password = Hash::make($request->get('password'));
+        $data["BirthDate"] = date("Y-m-d", $data["BirthDate"] / 1000);
+        unset($data["clinic"]);
+        unset($data["region"]);
+        unset($data["residenseregion"]);
+        $data['ClinicID'] = $ClinicID;
+        $data["password"] = Hash::make($request->get('password'));
+        $user->fill($data);
         $user->saveOrFail();
+
         return $response->setStatusCode(201);
 
     }

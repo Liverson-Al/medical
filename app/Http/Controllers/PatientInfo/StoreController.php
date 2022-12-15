@@ -24,8 +24,10 @@ class StoreController extends BaseController
         $employee_id = $user["id"];
         $ClinicID = 1;
 
+
         $personal_data = new PatientInfo();
         $pd = $request->all();
+        $pd["birthday"] = date("Y-m-d", $request->birthday / 1000);
         unset($pd["clinic"]);
         unset($pd["region"]);
         unset($pd["residenseregion"]);

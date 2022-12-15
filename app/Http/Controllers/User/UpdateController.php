@@ -20,13 +20,25 @@ class UpdateController extends BaseController
             unset($data["placeOfWork"]);
             $data['ClinicID'] = $ClinicID;
         }
-        $occ = Occupation::where("Value", $data["occupation"])->first();
-        $data["OccupationID"] = $occ["id"];
-        unset($data["occupation"]);
 
-        $role = Role::where("Value", $data["role"])->first();
-        $data["roleID"] = $role["Value"];
-        unset($data["role"]);
+        if(in_array("occupation", $data)) {
+            $occ = Occupation::where("Value", $data["occupation"])->first();
+            $data["OccupationID"] = $occ["id"];
+            unset($data["occupation"]);
+        }
+
+
+        if(in_array("BirthDate", $data)) {
+            $data["BirthDate"] = date("Y-m-d",  $data["BirthDate"] / 1000);
+        }
+
+        if(in_array("role", $data)) {
+            $role = Role::where("Value", $data["role"])->first();
+            $data["roleID"] = $role["Value"];
+            unset($data["role"]);
+        }
+
+
 
         $user = User::where("id", $userID)->update($data);
         $user = User::find($userID);
