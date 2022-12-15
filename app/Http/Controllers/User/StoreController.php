@@ -5,6 +5,8 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\User\UserResource;
 use App\Models\Clinic;
+use App\Models\Occupation;
+use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Response;
 use Illuminate\Http\Request;
@@ -19,12 +21,21 @@ class StoreController extends BaseController
         $user = new User();
         $ClinicID = 1;
 
-        $data["BirthDate"] = date("Y-m-d", $data["birthdate"] / 1000);
-        unset($data["birthdate"]);
+        $data["birthdate"] = date("Y-m-d", $data["birthdate"] / 1000);
+
+        $data['ClinicID'] = $ClinicID;
         unset($data["clinic"]);
         unset($data["region"]);
         unset($data["residenseregion"]);
-        $data['ClinicID'] = $ClinicID;
+
+        $role = Role::where("Value", $data["role"])->first();
+        $data["RoleID"] = $role["Value"];
+        unset($data["role"]);
+
+        $occ = Occupation::where("Value", $data["occupation"])->first();
+        $data["OccupationID"] = $occ["id"];
+        unset($data["occupation"]);
+
         $data["password"] = Hash::make($request->get('password'));
         $user->fill($data);
         $user->saveOrFail();

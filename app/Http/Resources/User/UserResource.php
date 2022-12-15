@@ -36,9 +36,7 @@ class UserResource extends JsonResource
             'placeOfWork'   => $clinic->Name,
 
             'role'          => $user->RoleID,
-
             'occupation'    => $occupation->Value,
-
             'workExperience'=> $user->WorkExperience,
         ];
     }

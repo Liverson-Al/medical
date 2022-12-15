@@ -28,13 +28,13 @@ class UpdateController extends BaseController
         }
 
 
-        if(in_array("BirthDate", $data)) {
-            $data["BirthDate"] = date("Y-m-d",  $data["BirthDate"] / 1000);
+        if(in_array("birthdate", $data)) {
+            $data["birthdate"] = date("Y-m-d",  $data["birthdate"] / 1000);
         }
 
         if(in_array("role", $data)) {
             $role = Role::where("Value", $data["role"])->first();
-            $data["roleID"] = $role["Value"];
+            $data["RoleID"] = $role["Value"];
             unset($data["role"]);
         }
 

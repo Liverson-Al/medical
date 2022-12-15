@@ -19,15 +19,15 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->string('password');
 
-            $table->string('Name')->nullable();
-            $table->string('Surname')->nullable();
-            $table->string('Patronymic')->nullable();
-            $table->date('BirthDate')->nullable();
-            $table->boolean('Sex')->nullable();
+            $table->string('name')->nullable();
+            $table->string('surname')->nullable();
+            $table->string('patronymic')->nullable();
+            $table->date('birthdate')->nullable();
+            $table->boolean('sex')->nullable();
             $table->unsignedBigInteger('ClinicID')->nullable();
             $table->unsignedBigInteger('RoleID')->nullable();
             $table->unsignedBigInteger('OccupationID')->nullable();
-            $table->integer('WorkExperience')->nullable();
+            $table->integer('workExperience')->nullable();
 
             $table->softDeletes();
             $table->timestamps();
