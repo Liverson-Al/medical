@@ -32,7 +32,7 @@ class ShortUserResource extends JsonResource
         $user = $this->resource;
         $clinic = Clinic::find($user->ClinicID);
 
-        $birthday_timestamp = strtotime($user->BirthDate);
+        $birthday_timestamp = strtotime($user->birthdate);
         $age = date('Y') - date('Y', $birthday_timestamp);
         if (date('md', $birthday_timestamp) > date('md')) {
             $age--;
@@ -40,13 +40,13 @@ class ShortUserResource extends JsonResource
 
         return [
             'id'            => $user->id,
-            'name'          => $user->Name,
-            'surname'       => $user->Surname,
-            'patronymic'    => $user->Patronymic,
+            'name'          => $user->name,
+            'surname'       => $user->surname,
+            'patronymic'    => $user->patronymic,
             'age'           => $age,
             'city'          => $clinic->City,
             'placeOfWork'   => $clinic->Name,
-            'workExperience'=> $user->WorkExperience,
+            'workExperience'=> $user->workExperience,
         ];
     }
 }

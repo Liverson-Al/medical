@@ -25,11 +25,11 @@ class UserResource extends JsonResource
         return [
             'id'            => $user->id,
             'email'         => $user->email,
-            'name'          => $user->Name,
-            'surname'       => $user->Surname,
-            'patronymic'    => $user->Patronymic,
-            'birthdate'     => $user->BirthDate,
-            'sex'           => $user->Sex,
+            'name'          => $user->name,
+            'surname'       => $user->surname,
+            'patronymic'    => $user->patronymic,
+            'birthdate'     => $user->birthdate,
+            'sex'           => $user->sex,
 
             'region'        => $clinic->Region,
             'city'          => $clinic->City,
@@ -37,7 +37,7 @@ class UserResource extends JsonResource
 
             'role'          => $user->RoleID,
             'occupation'    => $occupation->Value,
-            'workExperience'=> $user->WorkExperience,
+            'workExperience'=> $user->workExperience,
         ];
     }
 }

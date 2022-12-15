@@ -23,7 +23,10 @@ class DatabaseSeeder extends Seeder
         \App\Models\MSQCAngiographyAorta::factory(10)->create();
         \App\Models\Occupation::factory(1)->create();
         \App\Models\Occupation::factory()->create([
-            "Value" => "Разработчик"
+            "Value" => "разработчик"
+        ]);
+        \App\Models\Occupation::factory()->create([
+            "Value" => "медсестра"
         ]);
         for ($i = 0; $i <= 7; $i++){
             \App\Models\Role::factory()->create([
