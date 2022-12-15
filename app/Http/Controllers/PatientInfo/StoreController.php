@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\PatientInfo;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\User\UserResource;
 use App\Models\Anthropometry;
 use App\Models\Clinic;
 use App\Models\ClinicalData;
@@ -18,22 +19,22 @@ class StoreController extends BaseController
 {
     public function __invoke(Request $request, Response $response){
 
-        $patientID = $request->patientID;
-        $employee_id = $request->employee_id;
-        $request->request->add(['ClinicID' => 1]);
+
+        $user = new UserResource(auth()->user());
+        $employee_id = $user["id"];
         $ClinicID = 1;
 
-
-
         $personal_data = new PatientInfo();
-        $pd = $request->personal_data;
+        $pd = $request->all();
         unset($pd["clinic"]);
         unset($pd["region"]);
+        unset($pd["residenceregion"]);
         $pd['ClinicID'] = $ClinicID;
         $personal_data->fill($pd);
         $personal_data->saveOrFail();
 
-
+        $patientID = $personal_data->id;
+        
         if ($request->anthropometric_data) {
             $anthropometric_data = new Anthropometry();
             $anthropometric_data->patient_id = $patientID;

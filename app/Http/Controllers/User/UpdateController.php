@@ -21,7 +21,7 @@ class UpdateController extends BaseController
             $data['ClinicID'] = $ClinicID;
         }
         $occ = Occupation::where("Value", $data["occupation"])->first();
-        $data["occupationID"] = $occ["id"];
+        $data["OccupationID"] = $occ["id"];
         unset($data["occupation"]);
 
         $role = Role::where("Value", $data["role"])->first();
