@@ -23,14 +23,14 @@ class UpdateController extends BaseController
         if($request->personal_data){
             $pd = $data["personal_data"];
 
-            if(array_key_exists("bitrhday", $data)) {
-                $pd["BirthDate"] = date("Y-m-d",  $data["bitrhday"] / 1000);
+            if(array_key_exists("birthday", $pd)) {
+                $pd["birthday"] = date("Y-m-d",  $data["birthday"] / 1000);
             }
 
-            if(array_key_exists("city", $data) || array_key_exists("region", $data) || array_key_exists("placeOfWork", $data)) {
+            if(array_key_exists("city", $pd) || array_key_exists("residenseregion", $pd) || array_key_exists("clinic", $pd)) {
                 $ClinicID = 1;
                 unset($pd["clinic"]);
-                unset($pd["region"]);
+                unset($pd["city"]);
                 unset($pd["residenseregion"]);
                 $pd['ClinicID'] = $ClinicID;
             }
