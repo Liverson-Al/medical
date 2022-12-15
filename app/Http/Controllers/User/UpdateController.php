@@ -13,7 +13,7 @@ class UpdateController extends BaseController
 {
     public function __invoke(Request $request, $userID, Response $response){
         $data = $request->all();
-        if(in_array("region" || "placeOfWork" || "city", $data)) {
+        if(array_key_exists("region" || "placeOfWork" || "city", $data)) {
             $ClinicID = 1;
             unset($data["city"]);
             unset($data["region"]);
@@ -21,24 +21,20 @@ class UpdateController extends BaseController
             $data['ClinicID'] = $ClinicID;
         }
 
-        if(in_array("occupation", $data)) {
+        if(array_key_exists("occupation", $data)) {
             $occ = Occupation::where("Value", $data["occupation"])->first();
             $data["OccupationID"] = $occ["id"];
             unset($data["occupation"]);
         }
 
-
-        if(in_array("birthdate", $data)) {
+        if (array_key_exists("birthdate", $data)) {
             $data["birthdate"] = date("Y-m-d",  $data["birthdate"] / 1000);
         }
-
-        if(in_array("role", $data)) {
+        if(array_key_exists("role", $data)) {
             $role = Role::where("Value", $data["role"])->first();
             $data["RoleID"] = $role["Value"];
             unset($data["role"]);
         }
-
-
 
         $user = User::where("id", $userID)->update($data);
         $user = User::find($userID);
