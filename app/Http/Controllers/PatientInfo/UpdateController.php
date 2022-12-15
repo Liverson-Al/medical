@@ -24,7 +24,7 @@ class UpdateController extends BaseController
             $pd = $data["personal_data"];
 
             if(array_key_exists("birthday", $pd)) {
-                $pd["birthday"] = date("Y-m-d",  $data["birthday"] / 1000);
+                $pd["birthday"] = date("Y-m-d",  $pd["birthday"] / 1000);
             }
 
             if(array_key_exists("city", $pd) || array_key_exists("residenseregion", $pd) || array_key_exists("clinic", $pd)) {
