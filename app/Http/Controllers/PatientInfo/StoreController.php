@@ -28,13 +28,13 @@ class StoreController extends BaseController
         $pd = $request->all();
         unset($pd["clinic"]);
         unset($pd["region"]);
-        unset($pd["residenceregion"]);
+        unset($pd["residenseregion"]);
         $pd['ClinicID'] = $ClinicID;
         $personal_data->fill($pd);
         $personal_data->saveOrFail();
 
         $patientID = $personal_data->id;
-        
+
         if ($request->anthropometric_data) {
             $anthropometric_data = new Anthropometry();
             $anthropometric_data->patient_id = $patientID;
