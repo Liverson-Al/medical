@@ -13,11 +13,13 @@ class UpdateController extends BaseController
 {
     public function __invoke(Request $request, $userID, Response $response){
         $data = $request->all();
-        if(array_key_exists("region" || "placeOfWork" || "city", $data)) {
+        if(array_key_exists("city", $data) || array_key_exists("region", $data) || array_key_exists("placeOfWork", $data)) {
             $ClinicID = 1;
+
             unset($data["city"]);
             unset($data["region"]);
             unset($data["placeOfWork"]);
+
             $data['ClinicID'] = $ClinicID;
         }
 

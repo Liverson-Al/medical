@@ -27,7 +27,7 @@ class UpdateController extends BaseController
                 $pd["BirthDate"] = date("Y-m-d",  $data["bitrhday"] / 1000);
             }
 
-            if(array_key_exists("region" || "residenseregion" || "city", $data["personal_data"])) {
+            if(array_key_exists("city", $data) || array_key_exists("region", $data) || array_key_exists("placeOfWork", $data)) {
                 $ClinicID = 1;
                 unset($pd["clinic"]);
                 unset($pd["region"]);
