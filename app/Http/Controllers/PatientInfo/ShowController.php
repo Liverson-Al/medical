@@ -13,8 +13,6 @@ class ShowController extends BaseController
 {
     public function __invoke($patientID){
         $patient = PatientInfo::find($patientID);
-        //return new PatientInfoRaceZGLResource($patient);
         return new PatientInfoRaceResource($patient);
-        //return view('patients.show', compact('patient'));
     }
 }

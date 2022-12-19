@@ -4,10 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class PatientInfo extends Model
 {
-    use HasFactory;
+    use HasFactory, SoftDeletes;
     protected $guarded = false;
 
 //    public function Anthropometry()
@@ -15,7 +16,7 @@ class PatientInfo extends Model
 //        return $this->hasMany(Anthropometry::class);
 //    }
 
-        public function ConcomDisease()
+    public function ConcomDisease()
     {
         return $this->hasMany(ConcomDisease::class);
     }
@@ -40,14 +41,5 @@ class PatientInfo extends Model
         return $this->belongsTo(Clinic::class);
     }
 
-
-//    private function calculate_age($birthday) {
-//        $birthday_timestamp = strtotime($birthday);
-//        $age = date('Y') - date('Y', $birthday_timestamp);
-//        if (date('md', $birthday_timestamp) > date('md')) {
-//            $age--;
-//        }
-//        return $age;
-//    }
 
 }

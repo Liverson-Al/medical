@@ -16,13 +16,9 @@ return new class extends Migration
         Schema::create('patient_infos', function (Blueprint $table) {
             $table->id();
 
-//            $table->string('Name');
             $table->string('first_name');
-//            $table->string('Surname');
             $table->string('second_name');
-//            $table->string('Patronymic');
             $table->string('patronymic');
-//            $table->date('BirthDate');
             $table->date('birthday');
             $table->boolean('sex');
             $table->string('race');
