@@ -3,7 +3,6 @@
 namespace App\Http\Resources\PatientInfo;
 
 use App\Models\Clinic;
-use App\Models\PatientInfo;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 /**

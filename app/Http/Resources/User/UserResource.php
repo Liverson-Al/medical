@@ -5,7 +5,6 @@ namespace App\Http\Resources\User;
 use App\Models\Clinic;
 use App\Models\Occupation;
 use Illuminate\Http\Resources\Json\JsonResource;
-use Illuminate\Support\Facades\Hash;
 
 /**
  * Transform the resource into an array.

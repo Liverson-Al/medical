@@ -9,9 +9,7 @@ use App\Http\Resources\Echocardiography\EchocardiographyResource;
 use App\Http\Resources\MSQCAngiographyAorta\MSQCAngiographyAortaResource;
 use App\Http\Resources\PatientHistory\PatientHistoryResource;
 use App\Http\Resources\User\UserResource;
-use App\Models\Anthropometry;
 use App\Models\Clinic;
-use App\Models\PatientInfo;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class PatientInfoRaceResource extends JsonResource

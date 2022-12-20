@@ -10,6 +10,10 @@ use Illuminate\Http\Request;
 class ShowController extends BaseController
 {
     public function __invoke($userID){
+//        if ($userID == -1) {
+//            $users = User::all();
+//            return UserResource::collection($users);
+//        }
         $user = User::find($userID);
         return new UserResource($user);
     }
